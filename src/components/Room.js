@@ -8,7 +8,7 @@ import { useGLTF } from '@react-three/drei'
 export default function Room(props) {
   const { nodes, materials } = useGLTF('/Room/Room.gltf')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} >
       <group position={[0.17, 2.48, 0.43]} scale={[1.06, 0.79, 1.16]}>
         <mesh geometry={nodes.Cube002_1.geometry} material={materials['Material.001']} />
         <mesh geometry={nodes.Cube002_2.geometry} material={materials['Material.007']} />

@@ -13,6 +13,7 @@ function Title() {
                 fontSize={10}
                 maxWidth={200}
                 lineHeight={1}
+                // font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
                 letterSpacing={0.02}
                 textAlign={'left'}
                 anchorX="center"
