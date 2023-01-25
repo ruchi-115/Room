@@ -16,12 +16,12 @@ const Mirror = ({ color, ...props }) => {
     return (
         <>
             <Box ref={ref} {...props}>
-                <MeshReflectorMaterial
+                <meshBasicMaterial
                     envMap={texture}
-                    color="#DAA520"
-                    metalness={1}
-                    roughness={0}
-                    mirror={0.75}
+                    color="#a9a9a9"
+                    metalness={0.8}
+                    roughness={0.2}
+                    reflectivity={1}
                 />
             </Box>
         </>

@@ -11,10 +11,10 @@ export default function Room(props) {
 
   return (
     <>
-      <group {...props} dispose={null} castShadow>
+      <group castShadow receiveShadow {...props} dispose={null}>
         <group position={[0, 2.5, 0]} scale={2.5} >
-          <mesh geometry={nodes.Cube001_1.geometry} material={materials.white} receiveShadow />
-          <mesh geometry={nodes.Cube001_2.geometry} material={materials.white} receiveShadow />
+          <mesh geometry={nodes.Cube001_1.geometry} material={materials.white} />
+          <mesh geometry={nodes.Cube001_2.geometry} material={materials.white} />
         </group>
         <mesh geometry={nodes.Mattress.geometry} material={materials.white} position={[-0.94, 1.01, -1.33]} scale={[2.33, 0.27, 1.82]} />
         <mesh geometry={nodes.Bed.geometry} material={materials.brown} position={[-2.18, 0.47, -2.18]} scale={[0.13, 0.44, 0.13]} />

@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   // const light = useControls('pink', {
-  //   position: [-5, -25, 10],
+  //   position: [12, -20.5, -4.0],
   //   intensity: 0.5,
   // })
 
@@ -26,6 +26,7 @@ export default function Home() {
     <>
       <Canvas frameloop='demand' shadows camera={{ position: [0, 10, 60], fov: 50 }}  >
         {/* <Canvas frameloop='demand' camera={{ position: [-5, 8, -8] }} > */}
+        <pointLight position={[-10, 10, -30]} intensity={0.4} castShadow />
 
         <ScrollControls pages={2} // Each page takes 100% of the height of the canvas
           distance={1} // A factor that increases scroll bar travel (default: 1)
@@ -34,7 +35,8 @@ export default function Home() {
           infinite={false} // Can also scroll infinitely (default: false)
         >
           <Scroll >
-            <SpotLight position={[12, -20.5, -4.0]}
+            <rectAreaLight position={[12, -20.5, -4.0]} width={10} height={10} intensity={1} castShadow color={'#F4E99B'} />
+            {/* <SpotLight position={[12, -20.5, -4.0]}
               intensity={10}
               castShadow
               color={'#F4E99B'}
@@ -42,13 +44,13 @@ export default function Home() {
               angle={Math.PI / 10}
               scale={25}
               distance={10}
-            />
+            /> */}
             <pointLight position={[12, -20.5, -4.0]}
-              intensity={1}
+              intensity={0.3}
               castShadow
               color={'#F4E99B'}
             />
-            <ambientLight intensity={0.1} />
+            <ambientLight intensity={0.05} />
             {/* <pointLight position={[-10, 10, -15]} intensity={0.5} castShadow /> */}
             <Title />
             <Content />
@@ -67,12 +69,12 @@ export default function Home() {
 
 
           <Scroll >
-            <Room position={[15, -30, 10]} scale={[5, 5, 5]} rotation={[0, -1, 0]} castShadow receiveShadow />
+            <Room position={[15, -30, 10]} scale={[5, 5, 5]} rotation={[0, -1, 0]} />
           </Scroll>
         </ScrollControls>
         {/* <SpotLight position={[-1, -16, 1]} intensity={0.5} rotation={[0, 0, 100]} castShadow color={'yellow'} distance={80} scale={20} angle={2} penumbra={10} /> */}
 
-        {/* <OrbitControls /> */}
+        <OrbitControls />
       </Canvas>
 
 

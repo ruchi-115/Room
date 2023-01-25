@@ -15,7 +15,7 @@ function Pyramid({ position, color, ...props }) {
         <>
             <mesh castShadow ref={ref} position={position} onClick={() => api.applyImpulse([0, 0, -55], [0, 0, 0])} >
                 <coneGeometry args={[2, 4, 4]} rotation={90} />
-                <meshStandardMaterial clearcoat={0.3} envMap={texture} metalness={1} roughness={0} toneMapped={false} color={color} />
+                <meshBasicMaterial clearcoat={0.3} envMap={texture} metalness={1} roughness={0} reflectivity={1} color={color} />
             </mesh>
         </>
     )
@@ -32,9 +32,8 @@ function InvertedPyramid({ position, color, ...props }) {
     return (
         <>
             <mesh castShadow ref={ref} position={position} rotation={[3.15, 0, 0]} onClick={() => api.applyImpulse([0, 0, -55], [0, 0, 0])} >
-                {/* <pointLight position={[-3, -5, -20]} /> */}
                 <coneGeometry attach='geometry' args={[2, 4, 4]} />
-                <meshStandardMaterial attach="material" clearcoat={0.3} envMap={texture} metalness={1} roughness={0} toneMapped={false} color={color} />
+                <meshBasicMaterial attach="material" clearcoat={0.3} envMap={texture} metalness={1} reflectivity={1} roughness={0} color={color} />
                 {/* <meshPhysicalMaterial clearcoat={0.3} clearcoatRoughness={0} transmission={0.5} thickness={0.9} roughness={0} toneMapped={false} metalness={1} attach='material' color={"black"} /> */}
             </mesh>
         </>
