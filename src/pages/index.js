@@ -9,7 +9,6 @@ import Title from '@/components/Title.js'
 import { Html, OrbitControls, Scroll, ScrollControls, Billboard, SpotLightShadow, SpotLight, Box, RoundedBox, useTexture } from '@react-three/drei'
 import { Physics, useBox, usePlane } from "@react-three/cannon";
 import Mirrors from '@/components/Mirror.js'
-import Plane from '@/components/Plane.js'
 import PhyPlane from '@/components/PhyPlane.js'
 import PyramidStack from '@/components/Pyramid.js'
 import Content from '@/components/Content.js'

@@ -2,7 +2,6 @@ import { Suspense, useEffect, useLayoutEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Plane, ScrollControls, Scroll, useScroll, useGLTF, GizmoViewport, Box } from '@react-three/drei'
 import { useControls } from 'leva'
-// import Plane from '@/components/Plane'
 // import Overlay from './Overlay.js'
 
 export default function Room() {
