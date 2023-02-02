@@ -12,7 +12,6 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: #000000;
     font-family: 'Inter', sans-serif;
   }
 
@@ -21,3 +20,14 @@ Canvas {
     height: 717px;
     width: 880px;
   }
+
+.block {
+  position: absolute;
+  background-color: rgb(146, 173, 254);
+  width: 30em;
+  height: 30em;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+}

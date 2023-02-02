@@ -13,92 +13,92 @@ export default function Room(props) {
     <>
       <group castShadow receiveShadow {...props} dispose={null}>
         <group position={[0, 2.5, 0]} scale={2.5} >
-          <mesh geometry={nodes.Cube001_1.geometry} material={materials.white} />
-          <mesh geometry={nodes.Cube001_2.geometry} material={materials.white} />
+          <mesh castshadow receiveShadow geometry={nodes.Cube001_1.geometry} material={materials.white} />
+          <mesh castshadow receiveShadow geometry={nodes.Cube001_2.geometry} material={materials.white} />
         </group>
-        <mesh geometry={nodes.Mattress.geometry} material={materials.white} position={[-0.94, 1.01, -1.33]} scale={[2.33, 0.27, 1.82]} />
-        <mesh geometry={nodes.Bed.geometry} material={materials.brown} position={[-2.18, 0.47, -2.18]} scale={[0.13, 0.44, 0.13]} />
-        <mesh geometry={nodes.Blanket.geometry} material={materials.blue} position={[-1.02, 1.03, -1.33]} scale={[2.46, 0.3, 1.92]} />
-        <mesh geometry={nodes.Pillow.geometry} material={materials.Material} position={[-1.74, 1.27, -1.11]} scale={[0.47, 0.04, 0.77]} />
-        <mesh geometry={nodes.Pillow001.geometry} material={materials.Material} position={[-1.74, 1.38, -1.71]} rotation={[-0.26, -0.11, -0.19]} scale={[0.47, 0.04, 0.77]} />
-        <mesh geometry={nodes.Frame001.geometry} material={materials.blue} position={[-1.41, 3.52, -2.21]} rotation={[0, 0, -Math.PI]} scale={[-1, -1.51, -0.05]} />
-        <mesh geometry={nodes.Frame002.geometry} material={materials.Pink} position={[-0.29, 3.9, -2.21]} rotation={[0, 0, -Math.PI]} scale={[-1, -0.73, -0.05]} />
-        <mesh geometry={nodes.Frame003.geometry} material={materials.mint} position={[-0.09, 2.96, -2.21]} rotation={[0, 0, -Math.PI]} scale={[-1.39, -0.92, -0.05]} />
+        <mesh castshadow geometry={nodes.Mattress.geometry} material={materials.white} position={[-0.94, 1.01, -1.33]} scale={[2.33, 0.27, 1.82]} />
+        <mesh castshadow castShadow geometry={nodes.Bed.geometry} material={materials.brown} position={[-2.18, 0.47, -2.18]} scale={[0.13, 0.44, 0.13]} />
+        <mesh castshadow geometry={nodes.Blanket.geometry} material={materials.blue} position={[-1.02, 1.03, -1.33]} scale={[2.46, 0.3, 1.92]} />
+        <mesh castshadow geometry={nodes.Pillow.geometry} material={materials.Material} position={[-1.74, 1.27, -1.11]} scale={[0.47, 0.04, 0.77]} />
+        <mesh castshadow geometry={nodes.Pillow001.geometry} material={materials.Material} position={[-1.74, 1.38, -1.71]} rotation={[-0.26, -0.11, -0.19]} scale={[0.47, 0.04, 0.77]} />
+        <mesh castshadow geometry={nodes.Frame001.geometry} material={materials.blue} position={[-1.41, 3.52, -2.21]} rotation={[0, 0, -Math.PI]} scale={[-1, -1.51, -0.05]} />
+        <mesh castshadow geometry={nodes.Frame002.geometry} material={materials.Pink} position={[-0.29, 3.9, -2.21]} rotation={[0, 0, -Math.PI]} scale={[-1, -0.73, -0.05]} />
+        <mesh castshadow geometry={nodes.Frame003.geometry} material={materials.mint} position={[-0.09, 2.96, -2.21]} rotation={[0, 0, -Math.PI]} scale={[-1.39, -0.92, -0.05]} />
         <group position={[0.85, 0.42, -2.17]} scale={[0.13, 0.34, 0.13]}>
-          <mesh geometry={nodes.Cube017.geometry} material={materials.brown} />
-          <mesh geometry={nodes.Cube017_1.geometry} material={materials['Material.002']} />
+          <mesh castshadow geometry={nodes.Cube017.geometry} material={materials.brown} />
+          <mesh castshadow geometry={nodes.Cube017_1.geometry} material={materials['Material.002']} />
         </group>
-        <mesh geometry={nodes.Handles001.geometry} material={materials.white} position={[1.43, 2.04, -1.19]} scale={[0.68, 0.32, 0.47]} />
-        <mesh geometry={nodes.Handles002.geometry} material={materials.white} position={[1.55, 0.88, -1.2]} rotation={[0, 0, -Math.PI / 2]} scale={[0.68, 0.32, 0.47]} />
-        <mesh geometry={nodes['Lamp-table'].geometry} material={materials.brown} position={[-1.77, 0.73, -0.05]} scale={[0.93, 0.96, 0.64]} />
-        <mesh geometry={nodes.Cylinder004.geometry} material={materials.white} position={[-1.7, 1.59, -0.17]} scale={0.43} />
-        <mesh geometry={nodes.Cylinder005.geometry} material={materials.mint} position={[-1.7, 1.41, -0.17]} scale={[1, 0.53, 1]} />
-        <mesh geometry={nodes.Cube019.geometry} material={nodes.Cube019.material} position={[-1.58, 1.56, 1.29]} scale={[1.36, 0.06, 1.98]} />
-        <mesh geometry={nodes['pc-table'].geometry} material={materials.brown} position={[-1.01, 0.86, 0.42]} scale={[0.09, 1.22, 0.1]} />
-        <mesh geometry={nodes['Floor-Plane'].geometry} receiveShadow material={materials['Material.003']} position={[0.08, 0.26, 0.14]} scale={[4.83, 1, 4.72]} />
+        <mesh castshadow geometry={nodes.Handles001.geometry} material={materials.white} position={[1.43, 2.04, -1.19]} scale={[0.68, 0.32, 0.47]} />
+        <mesh castshadow geometry={nodes.Handles002.geometry} material={materials.white} position={[1.55, 0.88, -1.2]} rotation={[0, 0, -Math.PI / 2]} scale={[0.68, 0.32, 0.47]} />
+        <mesh castshadow geometry={nodes['Lamp-table'].geometry} material={materials.brown} position={[-1.77, 0.73, -0.05]} scale={[0.93, 0.96, 0.64]} />
+        <mesh castshadow geometry={nodes.Cylinder004.geometry} material={materials.white} position={[-1.7, 1.59, -0.17]} scale={0.43} />
+        <mesh castshadow geometry={nodes.Cylinder005.geometry} material={materials.mint} position={[-1.7, 1.41, -0.17]} scale={[1, 0.53, 1]} />
+        <mesh castshadow geometry={nodes.Cube019.geometry} material={nodes.Cube019.material} position={[-1.58, 1.56, 1.29]} scale={[1.36, 0.06, 1.98]} />
+        <mesh castshadow geometry={nodes['pc-table'].geometry} material={materials.brown} position={[-1.01, 0.86, 0.42]} scale={[0.09, 1.22, 0.1]} />
+        <mesh castshadow receiveShadow geometry={nodes['Floor-Plane'].geometry} material={materials['Material.003']} position={[0.08, 0.26, 0.14]} scale={[4.83, 1, 4.72]} />
         <group position={[-1.59, 1.61, 1.14]} scale={[0.39, 0.04, 0.83]}>
-          <mesh geometry={nodes.Cube035_1.geometry} material={materials['Dark-blue']} />
-          <mesh geometry={nodes.Cube035_2.geometry} material={materials['dark-grey']} />
+          <mesh castshadow geometry={nodes.Cube035_1.geometry} material={materials['Dark-blue']} />
+          <mesh castshadow geometry={nodes.Cube035_2.geometry} material={materials['dark-grey']} />
         </group>
         <group position={[-2.1, 1.6, 1.13]} scale={[0.2, 0.02, 0.52]}>
-          <mesh geometry={nodes.Cube036_1.geometry} material={materials['Dark-blue']} />
-          <mesh geometry={nodes.Cube036_2.geometry} material={materials.black} />
+          <mesh castshadow geometry={nodes.Cube036_1.geometry} material={materials['Dark-blue']} />
+          <mesh castshadow geometry={nodes.Cube036_2.geometry} material={materials.black} />
         </group>
-        <mesh geometry={nodes.Sphere001.geometry} material={materials.grey} position={[-1.5, 1.69, 0.5]} rotation={[0, 0.35, 0]} scale={1.22} />
+        <mesh castshadow geometry={nodes.Sphere001.geometry} material={materials.grey} position={[-1.5, 1.69, 0.5]} rotation={[0, 0.35, 0]} scale={1.22} />
         <group position={[-1.77, 1.63, 1.9]} rotation={[0, 0.77, 0]} scale={[0.78, 0.17, 1.16]}>
-          <mesh geometry={nodes.Cube037_1.geometry} material={materials.mint} />
-          <mesh geometry={nodes.Cube037_2.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube037_1.geometry} material={materials.mint} />
+          <mesh castshadow geometry={nodes.Cube037_2.geometry} material={materials.white} />
         </group>
-        <mesh geometry={nodes.Shelf002.geometry} material={materials.brown} position={[-1.94, 3.04, 1.07]} scale={[1.62, 0.16, 3.74]} />
-        <mesh geometry={nodes.Shelf001.geometry} material={materials.brown} position={[-1.94, 3.54, 0.56]} scale={[1.62, 0.16, 3.74]} />
+        <mesh castshadow geometry={nodes.Shelf002.geometry} material={materials.brown} position={[-1.94, 3.04, 1.07]} scale={[1.62, 0.16, 3.74]} />
+        <mesh castshadow geometry={nodes.Shelf001.geometry} material={materials.brown} position={[-1.94, 3.54, 0.56]} scale={[1.62, 0.16, 3.74]} />
         <group position={[-1.87, 3.62, 0.29]} rotation={[0, 1.09, 0]} scale={[0.78, 0.17, 1.16]}>
-          <mesh geometry={nodes.Cube040_1.geometry} material={materials.blue} />
-          <mesh geometry={nodes.Cube040_2.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube040_1.geometry} material={materials.blue} />
+          <mesh castshadow geometry={nodes.Cube040_2.geometry} material={materials.white} />
         </group>
         <group position={[-1.87, 3.7, 0.29]} rotation={[0, 1.45, 0]} scale={[0.77, 0.17, 1.08]}>
-          <mesh geometry={nodes.Cube041_1.geometry} material={materials.Red} />
-          <mesh geometry={nodes.Cube041_2.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube041_1.geometry} material={materials.Red} />
+          <mesh castshadow geometry={nodes.Cube041_2.geometry} material={materials.white} />
         </group>
         <group position={[-1.87, 3.77, 0.29]} rotation={[0, Math.PI / 4, 0]} scale={[0.78, 0.17, 1.16]}>
-          <mesh geometry={nodes.Cube042_1.geometry} material={materials['dark-grey']} />
-          <mesh geometry={nodes.Cube042_2.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube042_1.geometry} material={materials['dark-grey']} />
+          <mesh castshadow geometry={nodes.Cube042_2.geometry} material={materials.white} />
         </group>
         <group position={[-1.76, 3.27, 0.73]} rotation={[Math.PI / 2, 0, 0]} scale={[0.78, 0.17, 0.96]}>
-          <mesh geometry={nodes.Cube043_1.geometry} material={materials.mint} />
-          <mesh geometry={nodes.Cube043_2.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube043_1.geometry} material={materials.mint} />
+          <mesh castshadow geometry={nodes.Cube043_2.geometry} material={materials.white} />
         </group>
         <group position={[-1.76, 3.27, 0.81]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[0.78, 0.17, 0.96]}>
-          <mesh geometry={nodes.Cube044_1.geometry} material={materials.Pink} />
-          <mesh geometry={nodes.Cube044_2.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube044_1.geometry} material={materials.Pink} />
+          <mesh castshadow geometry={nodes.Cube044_2.geometry} material={materials.white} />
         </group>
         <group position={[-1.76, 3.27, 0.94]} rotation={[1.22, 0, -3.13]} scale={[0.78, 0.17, 0.96]}>
-          <mesh geometry={nodes.Cube045.geometry} material={materials.blue} />
-          <mesh geometry={nodes.Cube045_1.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube045.geometry} material={materials.blue} />
+          <mesh castshadow geometry={nodes.Cube045_1.geometry} material={materials.white} />
         </group>
         <group position={[-1.77, 3.11, 1.36]} rotation={[0, 0.22, 0]} scale={[0.78, 0.17, 1.16]}>
-          <mesh geometry={nodes.Cube046.geometry} material={materials.Red} />
-          <mesh geometry={nodes.Cube046_1.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cube046.geometry} material={materials.Red} />
+          <mesh castshadow geometry={nodes.Cube046_1.geometry} material={materials.white} />
         </group>
-        <mesh geometry={nodes.Cube042.geometry} material={materials.blue} position={[-0.06, 1.81, 1.25]} scale={[0.16, 1.11, 0.92]} />
-        <mesh geometry={nodes.Cube043.geometry} material={materials.blue} position={[-0.41, 0.91, 1.27]} rotation={[0, 0, Math.PI / 2]} scale={[0.16, 1.11, 0.92]} />
-        <mesh geometry={nodes.Cube044.geometry} material={materials['dark-grey']} position={[-0.39, 1.01, 1.25]} scale={[0.98, 0.08, 0.76]} />
-        <mesh geometry={nodes.Cylinder006.geometry} material={materials.grey} position={[0.15, 1.24, 1.26]} rotation={[0, 0, -0.35]} scale={[0.09, 1.07, 0.13]} />
-        <mesh geometry={nodes.Cylinder007.geometry} material={materials.grey} position={[-0.39, 0.74, 1.27]} scale={[0.7, 0.74, 0.66]} />
-        <mesh geometry={nodes.Sphere.geometry} material={materials['dark-grey']} position={[-0.4, 0.32, 0.63]} scale={0.47} />
-        <mesh geometry={nodes.Sphere002.geometry} material={materials['dark-grey']} position={[-0.4, 0.32, 1.9]} scale={0.47} />
-        <mesh geometry={nodes.Sphere003.geometry} material={materials['dark-grey']} position={[0.2, 0.32, 1.27]} scale={0.47} />
-        <mesh geometry={nodes.Sphere004.geometry} material={materials['dark-grey']} position={[-1.02, 0.32, 1.27]} scale={0.47} />
+        <mesh castshadow geometry={nodes.Cube042.geometry} material={materials.blue} position={[-0.06, 1.81, 1.25]} scale={[0.16, 1.11, 0.92]} />
+        <mesh castshadow geometry={nodes.Cube043.geometry} material={materials.blue} position={[-0.41, 0.91, 1.27]} rotation={[0, 0, Math.PI / 2]} scale={[0.16, 1.11, 0.92]} />
+        <mesh castshadow geometry={nodes.Cube044.geometry} material={materials['dark-grey']} position={[-0.39, 1.01, 1.25]} scale={[0.98, 0.08, 0.76]} />
+        <mesh castshadow geometry={nodes.Cylinder006.geometry} material={materials.grey} position={[0.15, 1.24, 1.26]} rotation={[0, 0, -0.35]} scale={[0.09, 1.07, 0.13]} />
+        <mesh castshadow geometry={nodes.Cylinder007.geometry} material={materials.grey} position={[-0.39, 0.74, 1.27]} scale={[0.7, 0.74, 0.66]} />
+        <mesh castshadow geometry={nodes.Sphere.geometry} material={materials['dark-grey']} position={[-0.4, 0.32, 0.63]} scale={0.47} />
+        <mesh castshadow geometry={nodes.Sphere002.geometry} material={materials['dark-grey']} position={[-0.4, 0.32, 1.9]} scale={0.47} />
+        <mesh castshadow geometry={nodes.Sphere003.geometry} material={materials['dark-grey']} position={[0.2, 0.32, 1.27]} scale={0.47} />
+        <mesh castshadow geometry={nodes.Sphere004.geometry} material={materials['dark-grey']} position={[-1.02, 0.32, 1.27]} scale={0.47} />
         <group position={[-1.86, 1.67, 0.43]} scale={[0.32, 1.15, 0.32]}>
-          <mesh geometry={nodes.Cylinder015.geometry} material={materials.blue} />
-          <mesh geometry={nodes.Cylinder015_1.geometry} material={materials.white} />
+          <mesh castshadow geometry={nodes.Cylinder015.geometry} material={materials.blue} />
+          <mesh castshadow geometry={nodes.Cylinder015_1.geometry} material={materials.white} />
         </group>
         <group position={[-1.2, 1.6, 1.79]} rotation={[0, -0.89, 0]} scale={[0.14, 0.02, 0.29]}>
-          <mesh geometry={nodes.Cube023.geometry} material={materials.blue} />
-          <mesh geometry={nodes.Cube023_1.geometry} material={materials.black} />
+          <mesh castshadow geometry={nodes.Cube023.geometry} material={materials.blue} />
+          <mesh castshadow geometry={nodes.Cube023_1.geometry} material={materials.black} />
         </group>
         <group position={[-2.37, 2.53, -1.24]} rotation={[-Math.PI, 0, 0]} scale={[-0.25, -1.49, -1.23]}>
-          <mesh geometry={nodes.Cube_1.geometry} material={materials.grey} />
-          <mesh geometry={nodes.Cube_2.geometry} material={materials.grey} />
+          <mesh castshadow geometry={nodes.Cube_1.geometry} material={materials.grey} />
+          <mesh castshadow geometry={nodes.Cube_2.geometry} material={materials.grey} />
         </group>
       </group>
     </>
