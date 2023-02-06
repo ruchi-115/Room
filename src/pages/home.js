@@ -1,31 +1,58 @@
-import { Suspense, useEffect, useLayoutEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Plane, ScrollControls, Scroll, useScroll, useGLTF, GizmoViewport, Box } from '@react-three/drei'
+import { Suspense, useEffect, useState, useLayoutEffect } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
+import * as THREE from "three";
+import { Plane, ScrollControls, Scroll, useScroll, useGLTF, GizmoViewport, Box, SoftShadows } from '@react-three/drei'
 import { useControls } from 'leva'
 // import Overlay from './Overlay.js'
 
 export default function Room() {
+  const [active, setActive] = useState(false);
+  const light = useControls('', {
+    position: [0, 3, 0],
+    intensity: 5,
+    color: '#fff',
+    rotation: [0, 0, 0],
+
+  })
+
   return (
     <>
       {/* <Overlay /> */}
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 0], near: 0.1, far: 1000 }}>
-        <color attach="background" args={['white']} />
-        <ambientLight intensity={0.3} castShadow />
-        <pointLight position={[-3, 5, 0]} color={'#fff'} intensity={0.3} />
-        {/* <Box scale={1} color={'black'} position={box.position} /> */}
-        {/* <fog attach="fog" args={['#ff5020', 5, 18]} /> */}
-        <spotLight angle={0.16} color="#fff" penumbra={1} position={[10, 50, -20]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
+        <color attach="background" args={active ? ["#101010"] : ["#c4e9ff"]} />
+        {/* #e0b7ff */}
+        <ambientLight intensity={active ? 0.06 : 0.8} />
+        {/* <pointLight position={[-0.1, -0.8, 2]} color={light.color} penumbra={1} intensity={0.1} /> */}
+        <rectAreaLight position={[0, 2.05, 0.8]} width={1} height={2} rotation={[-Math.PI / 2, 0, 0]} intensity={5} castShadow color={'blue'} />
+        <rectAreaLight position={[0, 1.3, 0]} width={1} height={2} rotation={[-Math.PI / 2, 0, 0]} intensity={5} castShadow color={'blue'} />
+        {/* <rectAreaLight position={[-1.3, -2, 3.6]} width={3} height={2.5} rotation={[-Math.PI / 2, 0, 0]} intensity={1} castShadow color={'#be46ff'} /> */}
+        <rectAreaLight position={[0.2, -1, 0]} width={3} height={0.5} rotation={[0, -Math.PI / 2, 0]} intensity={3} castShadow color={'#007589'} />
 
+        {/* <Box scale={0.5} position={light.position} castShadow>
+          <meshStandardMaterial color={light.color} />
+        </Box> */}
+
+        {/* <fog attach="fog" args={['#ff5020', 5, 18]} /> */}
+        <spotLight angle={0.16} color={active ? "blue" : "white"} intensity={1} penumbra={1} position={[-5, 50, -20]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
+
+        {/* <Plane onClick={() => setActive(!active)} args={[1000, 1000]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -4.5, 0]} >
+          <meshBasicMaterial attach="material" color={active ? "black" : "#e0b7ff"} receiveShadow />
+        </Plane> */}
+        <mesh onClick={() => setActive(!active)} rotation={[-Math.PI / 2, 0, 0]} position={[0, -4.5, 0]} receiveShadow>
+          <planeGeometry args={[1000, 1000]} />
+          <shadowMaterial transparent opacity={0.4} >
+            <SoftShadows />
+            <meshBasicMaterial attach="material" color={active ? "black" : "#e0b7ff"} receiveShadow />
+          </shadowMaterial>
+        </mesh>
         <Suspense fallback={null}>
           {/* Make a plane geometry */}
-          <Plane args={[1000, 1000]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -4.5, 0]} receiveShadow >
-            <meshBasicMaterial attach="material" color={'white'} receiveShadow />
-          </Plane>
           {/* Wrap contents you want to scroll into <ScrollControls> */}
           <ScrollControls pages={5}>
             <RoomCube scale={1.5} position={[-2.7, -3.2, 1.7]} rotation={[0, 3.14, 0]} castShadow />
             <Scroll html>
-              <div className='block' style={{ position: 'absolute', top: '900px', left: '50px' }} >
+              <div className='block' style={{ position: 'absolute', top: '900px' }} >
                 <h1><i>ABOUT ME</i></h1>
                 <h2>I am a full stack developer with a passion for creating beautiful
                   and functional web applications. I have a background in graphic design and a love for all things creative.
@@ -33,7 +60,7 @@ export default function Room() {
                   for a full time position as a developer.</h2>
               </div>
 
-              <div className='block' style={{ position: 'absolute', top: '2000px', left: '50px' }} >
+              <div className='block' style={{ position: 'absolute', top: '2000px' }} >
                 <h1><i>SKILLs</i></h1>
                 <h2>
                   <ul>
@@ -77,7 +104,7 @@ function RoomCube({ ...props }) {
     const r2 = scroll.range(1 / 7, 1.5 / 7)
     const r3 = scroll.range(2 / 7, 2.1 / 7)
 
-    state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2), Math.sin(r3) * -10)
+    state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2), Math.sin(r3) * -8)
     state.camera.lookAt(0.01, 0, 0)
   })
   return <primitive object={scene} {...props} castShadow />

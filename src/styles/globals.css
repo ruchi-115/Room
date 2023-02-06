@@ -23,11 +23,11 @@ Canvas {
 
 .block {
   position: absolute;
-  background-color: rgb(146, 173, 254);
-  width: 30em;
-  height: 30em;
-  margin: 1em;
-  padding: 1em;
-  border: 1px solid black;
-  border-radius: 1em;
+  background-color: rgb(255, 255, 255);
+  width: 35em;
+  height: 50em;
+  padding: 3em;
+  padding-top: 15em;
+  padding-bottom: 15em;
+  border-radius: 3em;
 }
