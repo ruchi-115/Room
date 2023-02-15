@@ -1,4 +1,4 @@
-@import url('https://rsms.me/inter/inter.css');
+/* @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;400;500;600'); */
 
 * {
     box-sizing: border-box;
@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Antonio', sans-serif;
   }
 
 
@@ -23,11 +23,7 @@ Canvas {
 
 .block {
   position: absolute;
-  width: 35em;
-  height: 50em;
   padding: 3em;
-  padding-top: 6em;
-  padding-bottom: 6em;
   border-radius: 3em;
 }
 
@@ -40,7 +36,7 @@ Canvas {
   line-height: 0.8em;
 }
 
-a {
+/* a {
   color: #3e3e3d;
   text-decoration: none;
 }
@@ -97,4 +93,4 @@ strong {
   margin-left: 10px;
   cursor: pointer;
 }
-
+ */

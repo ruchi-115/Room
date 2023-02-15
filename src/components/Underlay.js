@@ -34,8 +34,8 @@ export default function Underlay({ mode }) {
                             fontSize: 30,
                             fontWeight: "700",
                             lineHeight: "30px",
-                            color: mode ? "white" : "black",
                             letterSpacing: -2,
+                            color: mode ? "white" : "black",
                         }}>
                         RUCHITA'S PORTFOLIO
                     </p>

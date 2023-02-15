@@ -41,7 +41,7 @@ export default function Room() {
         </Box> */}
 
           {/* <fog attach="fog" args={['#ff5020', 5, 18]} /> */}
-          <Text
+          {/* <Text
             position={[0, 0, 10]}
             scale={0.4}
             color={'white'}
@@ -55,7 +55,7 @@ export default function Room() {
             anchorY="middle"
           >
             RXM
-          </Text>
+          </Text> */}
 
           <spotLight angle={0.16} color={active ? "blue" : "white"} intensity={1} penumbra={0.3} position={[-5, 50, -20]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
           <Plane onClick={() => setActive(!active)} args={[50, 50]} position={[0, -4.5, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow >
@@ -71,14 +71,171 @@ export default function Room() {
             <ScrollControls pages={8}>
               <RoomCube scale={1.5} position={[-2.7, -3.2, 1.7]} rotation={[0, 3.14, 0]} castShadow />
               <Scroll html>
-                <div className='block' style={{
+                <div style={{
+                  fontFamily: "'Antonio', sans-serif",
+                  position: "absolute",
+                  width: "38em",
+                  height: "18em",
+                  backgroundColor: active ? "black" : "white",
+                  top: '1000px',
+                  borderRadius: "0em 15em 15em 0em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+
+                }}>
+                  <div style={{
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "5em 15em 15em 5em",
+                    width: "33em",
+                    height: "12em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}>
+                    <p style={{
+                      color: active ? "white" : "black", paddingTop: "0.5em", margin: "0.3em", fontFamily: "'Antonio', sans-serif",
+                      fontSize: 40,
+                      fontWeight: "600",
+                      letterSpacing: -3,
+                    }}>HI, I'M RUCHITA SONAWALE</p>
+                    <p style={{
+                      color: active ? "white" : "black", margin: "0.3em",
+                      fontSize: 30,
+                      fontWeight: "500",
+                      paddingBottom: "0.8em",
+                      letterSpacing: -3,
+                    }}>FULL STACK DEVELOPER</p>
+                  </div>
+                </div>
+                <div style={{
+                  fontFamily: "'Antonio', sans-serif",
+                  position: "absolute",
+                  width: "36em",
+                  height: "40em",
+                  backgroundColor: active ? "black" : "white",
+                  top: '1265px',
+                  borderRadius: "0em 10em 10em 10em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+
+                }}>
+                  <div style={{
+                    fontFamily: "'Antonio', sans-serif",
+                    position: "absolute",
+                    width: "30em",
+                    height: "75em",
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "5em 10em 10em 10em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    padding: "4em 2em",
+                    letterSpacing: -2,
+                    marginTop: "40em"
+                  }}>
+                    {/* <h1 style={{ color: active ? "white" : "black", paddingTop: "0.5em", margin: "0.3em", fontSize: '2.5em', borderRadius: "0.2em" }}>ABOUT ME</h1> */}
+                    <p style={{ color: active ? "white" : "black", fontSize: '1.5em', margin: "0.3em" }}>I am a creative web developer with a passion for creating beautiful
+                      and functional web applications. I have a background in graphic design and a love for all things creative.
+                      I am a self-taught developer who is always looking to learn new things and improve my skills. I am currently looking
+                      for a full time position as a developer.</p>
+                    <p style={{ color: active ? "white" : "black", fontSize: '1.5em', margin: "0.3em" }}>
+                      I am constantly learning and evolving my skills to stay up-to-date with the latest trends and technologies,
+                      and I am dedicated to delivering high-quality, user-friendly designs.</p>
+                    <div style={{ paddingTop: "5.5em", margin: "0.3em" }}>
+                      <h1 style={{ color: active ? "white" : "black", paddingTop: "1em", margin: "0.3em", fontSize: '2.5em', borderRadius: "0.2em" }}>SKILLS</h1>
+                      <p style={{ color: active ? "white" : "black", fontSize: '1.5em', margin: "0.3em", paddingTop: "2em" }}>
+                        ● <b>Languages:</b> Python, C/C++, JavaScript, HTML5, CSS3, SQL.<br />
+                        ● <b>Graphics:</b> Blender, Figma.<br />
+                        ● <b>Frontend:</b> React, Vue.js, Redux, Node.js, Express, MongoDB, Django.<br />
+                        ● <b>Backend:</b> Next.js, Django.<br />
+                        ● <b>Frameworks:</b> React, Vue.js, React three fiber, three.js, Redux, Node.js, Express, MongoDB, Django.<br />
+                        ● <b>Tools:</b>Git, GitHub, Heroku, Netlify, Adobe Photoshop.<br />
+                      </p>
+
+                    </div>
+                  </div>
+                </div>
+                {/* Skills section */}
+                <div style={{
+                  fontFamily: "'Antonio', sans-serif",
+                  position: "absolute",
+                  width: "36em",
+                  height: "50em",
+                  backgroundColor: active ? "black" : "white",
+                  top: '1750px',
+                  borderRadius: "10em 10em 10em 10em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: -1
+
+                }}>
+                </div>
+
+                <div style={{
+                  fontFamily: "'Antonio', sans-serif",
+                  position: "absolute",
+                  width: "36em",
+                  height: "50em",
+                  backgroundColor: active ? "black" : "white",
+                  top: '2545px',
+                  borderRadius: "10em 10em 10em 10em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: -1
+                }}
+                >
+
+                  {/* Project section */}
+                  <div style={{
+                    fontFamily: "'Antonio', sans-serif",
+                    position: "absolute",
+                    width: "33em",
+                    height: "45em",
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "10em 10em 10em 10em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    padding: "4em 2em",
+                    letterSpacing: -2,
+                    marginLeft: "3em"
+                  }}>
+                    <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>PROJECTS</h1>
+                    <div style={{ paddingTop: "0.5em", margin: "0.3em" }}>
+                      <h1 style={{ color: active ? "white" : "black", margin: "0.3em", fontSize: '2em', borderRadius: "0.2em" }}>Portfolio</h1>
+                      <p style={{ color: active ? "white" : "black", fontSize: '1.2em', margin: "0.3em", paddingTop: "0.3em" }}>
+                        ● <b>Technologies:</b> React, Next.js, Figma, CSS3, HTML5.<br />
+                        ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://www.alexanderjames.dev/</a><br />
+                        ● <b>Description:</b> This is my personal portfolio website.
+                      </p>
+                      <h1 style={{ color: active ? "white" : "black", paddingTop: "0.5em", margin: "0.3em", fontSize: '2em', borderRadius: "0.2em" }}>Portfolio</h1>
+                      <p style={{ color: active ? "white" : "black", fontSize: '1.2em', margin: "0.3em", paddingTop: "0.3em" }}>
+                        ● <b>Technologies:</b> React, Next.js, Figma, CSS3, HTML5.<br />
+                        ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://www.alexanderjames.dev/</a><br />
+                        ● <b>Description:</b> This is my personal portfolio website.
+                      </p>
+                      <h1 style={{ color: active ? "white" : "black", paddingTop: "0.5em", margin: "0.3em", fontSize: '2em', borderRadius: "0.2em" }}>Portfolio</h1>
+                      <p style={{ color: active ? "white" : "black", fontSize: '1.2em', margin: "0.3em", paddingTop: "0.3em" }}>
+                        ● <b>Technologies:</b> React, Next.js, Figma, CSS3, HTML5.<br />
+                        ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://www.alexanderjames.dev/</a><br />
+                        ● <b>Description:</b> This is my personal portfolio website.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <div className='block' style={{
                   fontFamily: "'Antonio', sans-serif",
                   flex: "1 1 0%",
                   // fontSize: 15,
                   lineHeight: "30px", letterSpacing: 1, position: 'absolute', top: '900px', backgroundColor: active ? "black" : "white"
                 }} >
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '3em', borderRadius: "0.2em" }}><i>HI, I'M RUCHITA</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>A FULL STACK DEVELOPER</h2>
+
                   <p style={{ color: active ? 'white' : 'black' }}>I am a creative web developer with a passion for creating beautiful
                     and functional web applications. I have a background in graphic design and a love for all things creative.
                     I am a self-taught developer who is always looking to learn new things and improve my skills. I am currently looking
@@ -88,69 +245,14 @@ export default function Room() {
                     and I am dedicated to delivering high-quality, user-friendly designs that not only meet, but exceed the needs
                     and expectations of my clients. My passion for this field drives me to constantly push the boundaries and create unique
                     and innovative solutions that stand out in the crowded online world.
-                  </p>
-                  {/* <p style={{ color: active ? 'white' : 'black', fontSize: '1.2em' }}>
-                    <a href="" style={{ color: active ? 'white' : 'black', backgroundColor: active ? "#00066f" : "#99cad1", padding: "0.5em", fontSize: '1.2em', borderRadius: "0.2em" }}><i>VIEW MY RESUME</i></a>
                   </p> */}
-                </div>
+                {/* <p style={{ color: active ? 'white' : 'black', fontSize: '1.2em' }}>
+                    <a href="" style={{ color: active ? 'white' : 'black', backgroundColor: active ? "white" : "#99cad1", padding: "0.5em", fontSize: '1.2em', borderRadius: "0.2em" }}><i>VIEW MY RESUME</i></a>
+                  </p> */}
+                {/* </div> */}
 
 
-                <div className='block' style={{ position: 'absolute', height: '50em', top: '2000px', backgroundColor: active ? "black" : "white", }} >
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '3em', borderRadius: "0.2em" }}><i>SKILLS</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>WHAT I CAN DO</h2>
-                  {/* <div className='block' style={{ position: 'absolute', height: '80em', top: '1500px', backgroundColor: active ? "black" : "white", }} > */}
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '2em', borderRadius: "0.2em" }}><i>FRONT END</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>HTML, CSS, JAVASCRIPT, REACT, REDUX, THREEJS</h2>
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '2em', borderRadius: "0.2em" }}><i>BACK END</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>NODE, EXPRESS, POSTGRESQL, SEQUELIZE, MONGODB, MONGOOSE</h2>
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '2em', borderRadius: "0.2em" }}><i>OTHER</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>GIT, GITHUB, HEROKU, NETLIFY, VSCODE, FIGMA, PHOTOSHOP</h2>
-                  {/* </div> */}
-                </div>
 
-                <div className='block' style={{ position: 'absolute', height: '80em', top: '3000px', backgroundColor: active ? "black" : "white", }} >
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '3em', borderRadius: "0.2em" }}><i>PROJECTs</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>A FEW OF MY RECENT WORKS</h2>
-
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '2em', borderRadius: "0.2em" }}><i>REACT THREE FIBER</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>A 3D MODEL OF A ROOM</h2>
-                  <p style={{ color: active ? 'white' : 'black' }}>This is a 3D model of a room created using React Three Fiber. The model is interactive and can be rotated and zoomed in and out.</p>
-                  <p style={{ color: active ? 'white' : 'black' }}> <a href="" style={{ color: active ? 'white' : 'black', backgroundColor: active ? "#00066f" : "#99cad1", padding: "0.5em", fontSize: '1.2em', borderRadius: "0.2em" }}><i>VIEW PROJECT</i></a></p>
-
-                  {/* <div className='block' style={{ position: 'absolute', top: '2500px', backgroundColor: active ? "black" : "white", }} > */}
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '2em', borderRadius: "0.2em" }}><i>THREE.JS</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>A 3D MODEL OF A ROOM</h2>
-                  <p style={{ color: active ? 'white' : 'black' }}>This is a 3D model of a room created using Three.js. The model is interactive and can be rotated and zoomed in and out.</p>
-                  <p style={{ color: active ? 'white' : 'black' }}> <a href="" style={{ color: active ? 'white' : 'black', backgroundColor: active ? "#00066f" : "#99cad1", padding: "0.5em", fontSize: '1.2em', borderRadius: "0.2em" }}><i>VIEW PROJECT</i></a></p>
-                  {/* </div> */}
-                  {/* <div className='block' style={{ position: 'absolute', top: '2900px', backgroundColor: active ? "black" : "white", }} > */}
-                  <h1 style={{ border: active ? "#00066f" : "#99cad1", paddingTop: "0.5em", fontSize: '2em', borderRadius: "0.2em" }}><i>REACT THREE FIBER</i></h1>
-                  <h2 style={{ color: active ? "#00066f" : "#99cad1", paddingTop: "0.3em", fontSize: '1.5em' }}>A 3D MODEL OF A ROOM</h2>
-                  <p style={{ color: active ? 'white' : 'black' }}>This is a 3D model of a room created using React Three Fiber. The model is interactive and can be rotated and zoomed in and out.</p>
-                  <p style={{ color: active ? 'white' : 'black' }}> <a href="" style={{ color: active ? 'white' : 'black', backgroundColor: active ? "#00066f" : "#99cad1", padding: "0.5em", fontSize: '1.2em', borderRadius: "0.2em" }}><i>VIEW PROJECT</i></a></p>
-                  {/* </div> */}
-
-
-                  {/* <h1><i>SKILLs</i></h1>
-
-                  <h2>
-                    <ul>
-                      <li>HTML</li>
-                      <li>CSS</li>
-                      <li>Javascript</li>
-                      <li>React</li>
-                      <li>Node.js</li>
-                      <li>Express</li>
-                      <li>SQL</li>
-                      <li>Git</li>
-                      <li>GitHub</li>
-                      <li>Adobe Photoshop</li>
-                      <li>Three.js</li>
-                      <li>React Three Fiber</li>
-                      <li>Blender</li>
-                    </ul>
-                  </h2> */}
-                </div>
               </Scroll>
             </ScrollControls>
           </Suspense>
@@ -165,8 +267,8 @@ export default function Room() {
 function RoomCube({ ...props }) {
   // This hook gives you offets, ranges and other useful things
   const scroll = useScroll()
-  const { scene, nodes } = useGLTF('/room.glb')
-  // const { actions } = useAnimations(animations, scene)
+  const { scene, nodes } = useGLTF('/pc-room11-02.glb')
+  // const {actions} = useAnimations(animations, scene)
   useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
   // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
   useFrame((state) => {
@@ -180,5 +282,5 @@ function RoomCube({ ...props }) {
   })
   return <primitive object={scene} {...props} castShadow />
 }
-useGLTF.preload('/room.glb')
+useGLTF.preload('/pc-room11-02.glb')
 
