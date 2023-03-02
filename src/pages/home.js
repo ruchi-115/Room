@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useState, useLayoutEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Plane, ScrollControls, Scroll, useScroll, useGLTF, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
+import * as THREE from 'three'
+import { Plane, ScrollControls, Scroll, useScroll, useGLTF, useVideoTexture, useTexture, useAspect, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
 import { useControls } from 'leva'
 import Overlay from '../components/Overlay.js'
 import Underlay from '@/components/Underlay.js'
@@ -9,7 +10,7 @@ import Underlay from '@/components/Underlay.js'
 export default function Room() {
   const [active, setActive] = useState(false);
   // const light = useControls('', {
-  //   position: [0, 3, 0],
+  //   position: [0, 0, 0],
   //   intensity: 5,
   //   color: '#84d9e8',
   //   rotation: [0, -1, 0],
@@ -33,6 +34,7 @@ export default function Room() {
           {/* <pointLight position={[-0.1, -0.8, 2]} color={light.color} penumbra={1} intensity={0.1} /> */}
           <rectAreaLight position={[0, 2.05, 0.8]} width={1} height={2} rotation={[-Math.PI / 2, 0, 0]} intensity={5} color={'blue'} />
           <rectAreaLight position={[0, 1.3, 0]} width={1} height={2} rotation={[-Math.PI / 2, 0, 0]} intensity={5} color={'blue'} />
+          <rectAreaLight position={[-0.4, 0, 0]} width={1.5} height={1} rotation={[0, -Math.PI / 2, 0]} intensity={0.8} color={'white'} />
           {/* <rectAreaLight position={[-1.3, -2, 3.6]} width={3} height={2.5} rotation={[-Math.PI / 2, 0, 0]} intensity={1} castShadow color={'#be46ff'} /> */}
           <rectAreaLight position={[0.2, -1, 0]} width={3} height={0.5} rotation={[0, -Math.PI / 2, 0]} intensity={3} color={'#007589'} />
 
@@ -94,7 +96,7 @@ export default function Room() {
                     flexDirection: "column",
                     justifyContent: "center",
                   }}>
-                    <p style={{
+                    <p onClick={() => setActive(!active)} style={{
                       color: active ? "white" : "black", paddingTop: "0.5em", margin: "0.3em", fontFamily: "'Antonio', sans-serif",
                       fontSize: 40,
                       fontWeight: "600",
@@ -228,6 +230,105 @@ export default function Room() {
                     </div>
                   </div>
                 </div>
+                {/* Project section */}
+                <div style={{
+                  fontFamily: "'Antonio', sans-serif",
+                  position: "absolute",
+                  width: "36em",
+                  height: "50em",
+                  backgroundColor: active ? "black" : "white",
+                  top: '3340px',
+                  borderRadius: "10em 10em 10em 10em",
+                  display: "flex",
+                  alignItems: "start",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                  zIndex: -1
+                }}>
+                  <div style={{
+                    fontFamily: "'Antonio', sans-serif",
+                    position: "relative",
+                    width: "30em",
+                    height: "24em",
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "6em 6em 8em 8em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    padding: "4em 2em",
+                    letterSpacing: -2,
+                    marginBottom: "0.8em"
+
+                  }}>
+                    <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1>
+                  </div>
+                  <div style={{
+                    fontFamily: "'Antonio', sans-serif",
+                    position: "relative",
+                    width: "30em",
+                    height: "25em",
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "8em 8em 6em 6em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    padding: "4em 2em",
+                    letterSpacing: -2,
+
+                  }}>
+                    <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1>
+                  </div>
+                </div>
+                <div style={{
+                  fontFamily: "'Antonio', sans-serif",
+                  position: "absolute",
+                  width: "36em",
+                  height: "50em",
+                  backgroundColor: active ? "black" : "white",
+                  top: '4135px',
+                  borderRadius: "10em 10em 10em 10em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "left",
+                  zIndex: -1
+                }}
+                >
+                  <div style={{
+                    fontFamily: "'Antonio', sans-serif",
+                    position: "relative",
+                    width: "15em",
+                    height: "35em",
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "4em 4em 4em 4em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    padding: "4em 2em",
+                    letterSpacing: -2,
+                    margin: "0em 3em 0em 0em"
+
+                  }}>
+                    <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1>
+                  </div>
+                  <div style={{
+                    fontFamily: "'Antonio', sans-serif",
+                    position: "relative",
+                    width: "15em",
+                    height: "35em",
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "4em 4em 4em 4em",
+                    display: "flex",
+                    alignItems: "start",
+                    flexDirection: "column",
+                    padding: "4em 2em",
+                    letterSpacing: -2,
+                    margin: "0em 0em 0em 3em"
+
+                  }}>
+                    <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1>
+                  </div>
+
+                </div>
 
                 {/* <div className='block' style={{
                   fontFamily: "'Antonio', sans-serif",
@@ -252,15 +353,56 @@ export default function Room() {
                 {/* </div> */}
 
 
-
               </Scroll>
+
             </ScrollControls>
+            <Html>
+              <div>
+                <h1 onClick={() => setActive(!active)}>Click</h1>
+              </div>
+            </Html>
+            {/* <mesh scale={[10, 10]}>
+              <planeGeometry />
+            </mesh > */}
+            <Video />
           </Suspense>
+          {/* <Suspense fallback={<FallbackMaterial url="wallpaper.png" />}>
+            <VideoMaterial url="https://youtu.be/a3aV3mKr6Vo" crossOrigin={"Anonymous"} />
+          </Suspense> */}
           {/* <GizmoViewport scale={0.8} axisColors={['red', 'green', 'blue']} labelColor="black" /> */}
         </Canvas>
       </div>
     </>
 
+  )
+}
+
+function Video() {
+  const [video] = useState(() => {
+    const vid = document.createElement("video");
+    vid.src = './video1.mp4';
+    vid.crossOrigin = "Anonymous";
+    vid.loop = true;
+    vid.muted = true;
+    vid.play();
+    return vid;
+  }
+  )
+
+  return (
+    <mesh rotation={[0, -Math.PI / 2, 0]} position={[0.4, 0, 0]} scale={[0.4, 0.4, 1]}>
+      <planeGeometry args={[3.2, 1.9]} />
+      <meshBasicMaterial >
+        <videoTexture attach="map" args={[video]} />
+        {/* <videoTexture attach="emissiveMap" args={[video]} /> */}
+      </meshBasicMaterial>
+    </mesh>
+    // <mesh position={[-2, 0, 0]} rotation={[0, Math.PI / 2, 0]}  >
+    //   <planeGeometry />
+    //   <meshBasicMaterial toneMapped={false}>
+    //     <videoTexture attach="map" args={[video]} />
+    //   </meshBasicMaterial>
+    // </mesh>
   )
 }
 
@@ -273,12 +415,30 @@ function RoomCube({ ...props }) {
   // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
   useFrame((state) => {
     // The offset is between 0 and 1, you can apply it to your models any way you like
-    const r1 = scroll.range(0 / 7, 0.5 / 7)
+    const r1 = scroll.range(0 / 7, 0.9 / 7)
     const r2 = scroll.range(1 / 7, 1.5 / 7)
-    const r3 = scroll.range(2 / 7, 2.1 / 7)
+    const r3 = scroll.range(2 / 7, 2.5 / 7)
+    const r4 = scroll.curve(3 / 7, 3.5 / 7)
+    const r5 = scroll.curve(4 / 7, 4.5 / 7)
 
     state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8)
+    state.camera.position.lerp(state.camera.position, 0.1)
+    // state.camera.position.setX(Math.sin(r1) * -12)
+    // state.camera.position.setY(Math.sin(r2) * 2)
+    // state.camera.position.setZ(Math.sin(r3) * -8)
+    // state.camera.position.setY(Math.sin(r4) * 2)
+    // state.camera.position.setX(r3 * -12)
+    // state.camera.position.setZ(r4 * -8)
+    // state.camera.position.setY(Math.cos(r5) * 6)
     state.camera.lookAt(0.01, 0, 0)
+    // state.camera.position.setX(Math.sin(r4) * -12)
+    // state.camera.rotateY(Math.cos(r4) * 8)
+    // state.camera.lookAt(-1, 1, 25)
+
+
+    // console.log(state.camera.position)
+
+    // state.camera.rotation.set(Math.PI / 2, 0, 0)
   })
   return <primitive object={scene} {...props} castShadow />
 }
