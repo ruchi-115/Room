@@ -26,6 +26,18 @@ export default function Room() {
 
         <Underlay mode={active} />
         <Overlay mode={active} />
+        {/* Dark mode switch */}
+        <div style={{ position: "absolute", bottom: 40, right: 40, zIndex: 2 }}>
+
+          {/* Circle Button  */}
+          <button onClick={() => setActive(!active)} class="button"
+            style={{
+              backgroundColor: active ? "#99cad1" : "#0f0f0f",
+            }}>{active ? "☼" : "☽"}</button>
+        </div>
+        {/* Dark mode switch */}
+
+        {/* Room + Scroll Content */}
         <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 0], near: 0.1, far: 1000 }}>
           {/* <color attach="background" args={active ? ["#101010"] : ["#c4e9ff"]} /> */}
 
@@ -96,7 +108,7 @@ export default function Room() {
                     flexDirection: "column",
                     justifyContent: "center",
                   }}>
-                    <p onClick={() => setActive(!active)} style={{
+                    <p style={{
                       color: active ? "white" : "black", paddingTop: "0.5em", margin: "0.3em", fontFamily: "'Antonio', sans-serif",
                       fontSize: 40,
                       fontWeight: "600",
@@ -356,11 +368,7 @@ export default function Room() {
               </Scroll>
 
             </ScrollControls>
-            <Html>
-              <div>
-                <h1 onClick={() => setActive(!active)}>Click</h1>
-              </div>
-            </Html>
+
             {/* <mesh scale={[10, 10]}>
               <planeGeometry />
             </mesh > */}

@@ -25,8 +25,9 @@ export default function Underlay({ mode }) {
                 }} >
                     <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
                 </div> */}
-                <div style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                <div onClick={() => setActive(!active)} style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
                     <p
+
                         style={{
                             fontFamily: "'Antonio', sans-serif",
                             flex: "1 1 0%",
