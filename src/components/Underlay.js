@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Underlay({ mode }) {
-    const [active, setActive] = useState(false);
+
     return (
         <>
             <div
@@ -25,7 +25,7 @@ export default function Underlay({ mode }) {
                 }} >
                     <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
                 </div> */}
-                <div onClick={() => setActive(!active)} style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: "100%", padding: 0, display: "inline-flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
                     <p
 
                         style={{
