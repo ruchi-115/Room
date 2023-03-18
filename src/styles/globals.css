@@ -18,7 +18,7 @@
    text-decoration: none;
   }
   /* light-dark mode button */
-  .button {
+.button {
   color: white;
   border: none;
   padding: 5px;
@@ -31,8 +31,241 @@
   border-radius: 50%;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.font-xlg {
+  font-size: 2.3em;
+  font-weight: 600;
+  letter-spacing: -3;
+}
+
+.font-lg {
+  font-size: 1.8em;
+  font-weight: 500;
+  letter-spacing: -3;
+}
+
+.font-md {
+  font-size: 1.3em;
+  font-weight: 500;
+  letter-spacing: -3;
+}
+
+.margin-sm {
+  margin: 0.3em;
+}
 
 /* Letter-wise div css styling */
 .letter-r {
-  
+  /* font-family: 'Antonio', sans-serif; */
+  width: 38em;
+  height: 18em;
+  border-radius: 0em 15em 15em 0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 1024px;
 }
+
+.letter-r-inside {
+  width: 33em;
+  height: 12em;
+  display: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5em 15em 15em 5em;
+}
+
+.letter-u {
+  font-family: 'Antonio', sans-serif;
+  width: 36em;
+  height: 40em;
+  border-radius: 0em 10em 10em 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 1265px;
+}
+
+.letter-u-inside {
+  font-family: 'antonio', sans-serif;
+  width: 30em;
+  height: 75em;
+  display: flex-start;
+  flex-direction: column;
+  border-radius: 5em 10em 10em 10em;
+  padding: 4em 2em;
+  letter-spacing: -2;
+  margin-top: 40em;
+}
+
+.letter-u-bg {
+  width: 36em;
+  height: 50em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10em 10em 10em 10em;
+  padding: 4em 2em;
+  letter-spacing: -2;
+  /* margin-top: 40em; */
+  top: 1750px;
+  z-index: -1;
+}
+
+.letter-c {
+  font-family: 'Antonio', sans-serif;
+  width: 36em;
+  height: 50em;
+  border-radius: 10em 10em 10em 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 2545px;
+  z-index: -1;
+}
+
+.letter-c-inside {
+  width: 33em;
+  height: 45em;
+  display: flex-start;
+  flex-direction: column;
+  border-radius: 10em 10em 10em 10em;
+  padding: 4em 2em;
+  letter-spacing: -2;
+  margin-left:   3em;
+}
+
+.letter-h {
+  font-family: 'Antonio', sans-serif;
+  width: 36em;
+  height: 50em;
+  border-radius: 10em 10em 10em 10em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 3340px;
+  z-index: -1;
+}
+
+.letter-h-inside {
+  width: 30em;
+  height: 24em;
+  display: flex-start;
+  flex-direction: column;
+  padding: 4em 2em;
+  letter-spacing: -2;
+}
+
+.letter-i {
+  font-family: 'Antonio', sans-serif;
+  width: 36em;
+  height: 50em;
+  border-radius: 10em 10em 10em 10em;
+  display: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 4135px;
+  z-index: -1;
+}
+
+.letter-i-inside {
+  width: 20em;
+  height: 35em;
+  position: relative;
+  display: flex-start;
+  flex-direction: column;
+  justify-content: left;
+  padding: 0em 2em;
+  letter-spacing: -2;
+  border-radius: 4em 4em 4em 4em;
+}
+
+
+
+/* media queries */
+/* // X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+  .letter-r {
+    width: 29em;
+    height: 14em;
+  }
+  .letter-r-inside {
+    width: 25em;
+    height: 10em;
+  }
+  .font-xlg {
+    font-size: 1.8em;
+    font-weight: 600;
+    letter-spacing: -3;
+  }
+  .font-lg {
+    font-size: 1.3em;
+    font-weight: 500;
+    letter-spacing: -3;
+  }
+  .font-md {
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: -3;
+  }
+  .letter-u {
+    width: 28em;
+    height: 30em;
+    top: 1190px;
+  }
+  .letter-u-inside {
+    width: 25em;
+    height: 47em;
+    margin-top: 22em;
+  }
+  .letter-u-bg {
+    width: 28em;
+    height: 30em;
+    top: 1520px;
+  }
+  .letter-c {
+    width: 28em;
+    height: 40em;
+    top: 2000px;
+  }
+  .letter-c-inside {
+    width: 26em;
+    height: 36em;
+    margin-left: 2em;
+  }
+  .letter-h {
+    width: 28em;
+    height: 42em;
+    top: 2640px;
+  }
+  .letter-h-inside {
+    width: 25em;
+    height: 20em;
+  }
+  .letter-i {
+    width: 28em;
+    height: 40em;
+    top: 3270px;
+  }
+  .letter-i-inside {
+    width: 20em;
+    height: 28em;
+  }
+
+
+ }
+
+/* // Small devices (landscape phones, less than 768px) */
+/* @media (max-width: 767.98px) { ... } */
+
+/* // Medium devices (tablets, less than 992px) */
+/* @media (max-width: 991.98px) { ... } */
+
+/* // Large devices (desktops, less than 1200px) */
+/* @media (max-width: 1199.98px) { ... } */
+
+/* // X-Large devices (large desktops, less than 1400px) */
+/* @media (max-width: 1399.98px) { ... } */
