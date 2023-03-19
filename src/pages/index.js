@@ -1,20 +1,21 @@
-import { Suspense, useEffect, useState, useLayoutEffect } from 'react'
+import { Suspense, useEffect, useState, useRef, useLayoutEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { Plane, ScrollControls, Scroll, useScroll, useGLTF, useVideoTexture, useTexture, useAspect, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
+import { Plane, ScrollControls, Scroll, useScroll, useGLTF, Image, useVideoTexture, useTexture, useAspect, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
 import { useControls } from 'leva'
 import Overlay from '../components/Overlay.js'
 import Underlay from '@/components/Underlay.js'
 import LoadingScreen from '@/components/Loading.js'
+// import Frame from '@/components/Frame.js'
 
 
 export default function Room() {
   const [active, setActive] = useState(false);
   // const light = useControls('', {
   //   position: [0, 0, 0],
-  //   intensity: 5,
-  //   color: '#84d9e8',
-  //   rotation: [0, -1, 0],
+  // intensity: 5,
+  // color: '#84d9e8',
+  // rotation: [0, -1, 0],
 
   // })
 
@@ -52,9 +53,14 @@ export default function Room() {
           {/* <rectAreaLight position={[-1.3, -2, 3.6]} width={3} height={2.5} rotation={[-Math.PI / 2, 0, 0]} intensity={1} castShadow color={'#be46ff'} /> */}
           <rectAreaLight position={[0.2, -1, 0]} width={3} height={0.5} rotation={[0, -Math.PI / 2, 0]} intensity={3} color={'#007589'} />
           <spotLight angle={0.16} color={active ? "blue" : "white"} intensity={1} penumbra={0.3} position={[-5, 50, -20]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
-          <Plane args={[50, 50]} position={[0, -4.5, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow >
+          <Plane args={[50, 50]} position={[0, -4.5, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow  >
             <meshStandardMaterial color={active ? "#101010" : "#84d9e8"} receiveShadow />
           </Plane>
+          {/* <Image url="/wallpaper.png" position={[-2.25, 2.6, 4.95]} rotation={[0, -Math.PI, 0]} scale={[1.3, 0.8, 0.8]} /> */}
+          {/* <mesh position={light.position}>
+            <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+            <meshNormalMaterial attach="material" />
+          </mesh> */}
 
 
           <Suspense fallback={null}>
@@ -259,6 +265,7 @@ function RoomCube({ ...props }) {
   // This hook gives you offets, ranges and other useful things
   const scroll = useScroll()
   const { scene, nodes } = useGLTF('/room.glb')
+  const [zoom, setZoom] = useState(false)
   // const {actions} = useAnimations(animations, scene)
   useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
   // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
@@ -269,9 +276,14 @@ function RoomCube({ ...props }) {
     const r3 = scroll.range(2 / 7, 2.5 / 7)
     const r4 = scroll.curve(3 / 7, 3.5 / 7)
     const r5 = scroll.curve(4 / 7, 4.5 / 7)
+    const dummy = new THREE.Vector3()
 
-    state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8)
-    state.camera.position.lerp(state.camera.position, 0.1)
+    // zoom ? state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12 ,zoom ?  2 : Math.sin(r2) * 2, zoom ? 2: Math.sin(r3) * -8), 0.05) : (state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8))
+    state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12, zoom ? 2 : Math.sin(r2) * 2, zoom ? 2 : Math.sin(r3) * -8), 0.08)
+    zoom ? state.camera.lookAt(-2, 2, 5) : state.camera.lookAt(0.01, 0, 0)
+
+    // state.camera.position.lerp(state.camera.position, 0.1)
+
     // state.camera.position.setX(Math.sin(r1) * -12)
     // state.camera.position.setY(Math.sin(r2) * 2)
     // state.camera.position.setZ(Math.sin(r3) * -8)
@@ -279,17 +291,53 @@ function RoomCube({ ...props }) {
     // state.camera.position.setX(r3 * -12)
     // state.camera.position.setZ(r4 * -8)
     // state.camera.position.setY(Math.cos(r5) * 6)
-    state.camera.lookAt(0.01, 0, 0)
+
+    // state.camera.lookAt(0.01, 0, 0)
+    state.camera.updateProjectionMatrix()
     // state.camera.position.setX(Math.sin(r4) * -12)
     // state.camera.rotateY(Math.cos(r4) * 8)
     // state.camera.lookAt(-1, 1, 25)
 
 
-    // console.log(state.camera.position)
+    console.log(state.camera.position)
 
     // state.camera.rotation.set(Math.PI / 2, 0, 0)
   })
-  return <primitive object={scene} {...props} castShadow />
+  const position = useControls('center', {
+    position: [-4, 3, 4.5],
+  }
+  )
+  return (
+    <>
+      <primitive object={scene} {...props} castShadow onClick={() => setZoom(!zoom)} />
+      {/* {zoom ? <Image url="/wallpaper.png" position={[-2.25, 2.6, 4.95]} rotation={[0, -Math.PI, 0]} scale={[1.3, 0.8, 0.8]} /> : null} */}
+      <Frame position={[-2, 2.2, 4.5]} scale={[1, 1.3, 0.05]} url='/ideacon.png' />
+      <Frame position={[-2.1, 1, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
+      <Frame position={[-4.03, 2.45, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
+      <Frame position={[-1.03, 2.65, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
+      <Frame position={[-3.05, 2.6, 4.5]} scale={[1, 1.3, 0.05]} url='/wallpaper.png' />
+      <Frame position={[-3.14, 1.37, 4.5]} scale={[1.2, 1, 0.05]} url='/Planets.jpg' />
+      <Frame position={[-0.83, 1.6, 4.5]} scale={[1.2, 1, 0.05]} url='/wallpaper.png' />
+      {/* <Image onClick={() => setZoom(!zoom)} url="/wallpaper.png" position={[-2.25, 2.6, 4.95]} rotation={[0, -Math.PI, 0]} scale={[1.3, 0.8, 0.8]} /> */}
+    </>
+  )
 }
 useGLTF.preload('/room.glb')
 
+function Frame({ url, position, scale, ...props }) {
+  const image = useRef()
+
+  return (
+    <mesh
+      scale={scale}
+      position={position}>
+      <boxGeometry />
+      <meshStandardMaterial color="#090a43" metalness={0.5} roughness={0.5} envMapIntensity={2} />
+      <mesh scale={[0.9, 0.93, 0.9]} position={[0, 0, -0.2]}>
+        <boxGeometry />
+        <meshStandardMaterial toneMapped={false} fog={false} />
+      </mesh>
+      <Image position={[0, 0, -0.7]} ref={image} scale={[0.8, 0.6, 0.8]} rotation={[0, -Math.PI, 0]} url={url} />
+    </mesh>
+  )
+}
