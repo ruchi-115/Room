@@ -183,6 +183,52 @@
   border-radius: 4em 4em 4em 4em;
 }
 
+.letter-t {
+  font-family: 'Antonio', sans-serif;
+  width: 36em;
+  height: 44em;
+  border-radius: 10em 10em 10em 10em;
+  display: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 4930px;
+  z-index: -1;
+}
+
+.letter-t-inside {
+  width: 20em;
+  height: 38em;
+  position: relative;
+  display: flex-start;
+  flex-direction: column;
+  justify-content: left;
+  padding: 0em 2em;
+  letter-spacing: -2;
+  border-radius: 3em ;
+  
+}
+
+.letter-a {
+  font-family: 'Antonio', sans-serif;
+  width: 36em;
+  height: 50em;
+  border-radius: 10em 10em 10em 10em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 5653px;
+  z-index: -1;
+}
+
+.letter-a-inside {
+  width: 30em;
+  height: 22em;
+  display: flex-start;
+  flex-direction: column;
+  padding: 2em 2em;
+  letter-spacing: -2;
+}
+
 
 
 /* media queries */
@@ -254,6 +300,25 @@
     width: 20em;
     height: 28em;
   }
+  .letter-t {
+    width: 28em;
+    height: 36em;
+    top: 3850px;
+  }
+  .letter-t-inside {
+    width: 20em;
+    height: 32em;
+  }
+  .letter-a {
+    width: 28em;
+    height: 42em;
+    top: 4450px;
+  }
+  .letter-a-inside {
+    width: 25em;
+    height: 18em;
+  }
+  
 
 
  }

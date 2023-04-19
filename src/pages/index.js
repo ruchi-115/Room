@@ -65,7 +65,7 @@ export default function Room() {
 
           <Suspense fallback={null}>
             {/* Wrap contents you want to scroll into <ScrollControls> */}
-            <ScrollControls pages={8}>
+            <ScrollControls pages={10}>
               <RoomCube scale={1.5} position={[-2.7, -3.2, 1.67]} rotation={[0, 3.14, 0]} castShadow />
               <Scroll html>
                 {/* Letter R */}
@@ -209,6 +209,72 @@ export default function Room() {
                     </div>
                   </div>
                 </div>
+                {/* Letter T */}
+                {/* About me section */}
+                <div className='letter-t absolute' style={{ backgroundColor: active ? "black" : "white" }}>
+                  <h1 className='font-xlg' style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.8em 5em" }}>ABOUT ME</h1>
+                  <div style={{
+                    backgroundColor: active ? "black" : "white",
+                    borderRadius: "10em 10em 10em 10em",
+                    margin: "2em 0em",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "left",
+                    zIndex: -1
+                  }}
+                  >
+                    <div className='letter-t-inside' style={{
+                      backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                      margin: "0em 3em 0em 0em"
+
+                    }}>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● 3rd year student pursuing B.E in Computer Engineering (Batch 2024) </p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of CSI DMCE tech team (2021 - current)</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of GDSC web dev team (2021 - 2022)</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Web dev intern at LetsGrowMore Internship Program.</p>
+                    </div>
+                    <div className='letter-t-inside' style={{
+                      backgroundColor: active ? "#0f0f0f" : "#99cad1",
+
+                    }}>
+                      {/* <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1> */}
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Interests Web dev and 3d graphic designing.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Likes playing football and video games. </p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Participated in more than 10+ hackathons.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Open Source project contributer and maintainer.</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Letter A */}
+                {/* About me section */}
+                <div className='letter-a absolute' style={{ backgroundColor: active ? "black" : "white" }}>
+                  <div className='letter-a-inside' style={{
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "8em 8em 6em 6em",
+                    marginBottom: "3em",
+                    marginTop: "3em"
+                  }}>
+                    {/* <h1 className='font-xlg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.1em" }}>ACHIEVEMENTS 🏆</h1> */}
+                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>1st Place at SIH(Smart India Hackathon) 2022</h3>
+                    <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
+                      ● <b>Problem statement:</b> 'Grade-wise iron-ore accounting from mines to end-points to prevent loss of revenue to the state'<br />
+                      ● <b>Details:</b> <a href="https://www.linkedin.com/posts/ruchita-sonawale-475063196_sih2022-smartindiahackathon-smartindiahackathon2022-activity-6970796902627897345-XnTy?utm_source=share&utm_medium=member_desktop" style={{ color: active ? "white" : "black" }}>More info</a><br />
+                    </p>
+                  </div>
+                  <div className='letter-a-inside' style={{
+                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
+                    borderRadius: "8em 8em 4em 4em",
+                  }}>
+                    {/* <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1> */}
+                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>1st Place at PRISM 2022</h3>
+                    <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
+                      ● <b>Problem statement:</b> 'Wildlife Detection and Evaluaion using camera-trap images using Deep Learning'<br />
+                      ● <b>Details:</b> Research idea contest in collaboration with Indo Korea Science and Technology Centre (IKST)<a href="https://www.linkedin.com/posts/ruchita-sonawale-475063196_prism2022-machinelearning-prism2022-activity-7029450773381955584-i1qo?utm_source=share&utm_medium=member_desktop" style={{ color: active ? "white" : "black" }}> More Info.</a><br />
+                    </p>
+                  </div>
+                </div>
+
+
               </Scroll>
 
             </ScrollControls>
@@ -279,8 +345,10 @@ function RoomCube({ ...props }) {
     const dummy = new THREE.Vector3()
 
     // zoom ? state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12 ,zoom ?  2 : Math.sin(r2) * 2, zoom ? 2: Math.sin(r3) * -8), 0.05) : (state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8))
-    state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12, zoom ? 2 : Math.sin(r2) * 2, zoom ? 2 : Math.sin(r3) * -8), 0.08)
-    zoom ? state.camera.lookAt(-2, 2, 5) : state.camera.lookAt(0.01, 0, 0)
+    // state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12, zoom ? 2 : Math.sin(r2) * 2, zoom ? 2 : Math.sin(r3) * -8), 0.08)
+    // zoom ? state.camera.lookAt(-2, 2, 5) : state.camera.lookAt(0.01, 0, 0)
+    state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8)
+    state.camera.lookAt(0.01, 0, 0)
 
     // state.camera.position.lerp(state.camera.position, 0.1)
 
@@ -299,45 +367,45 @@ function RoomCube({ ...props }) {
     // state.camera.lookAt(-1, 1, 25)
 
 
-    console.log(state.camera.position)
+    // console.log(state.camera.position)
 
     // state.camera.rotation.set(Math.PI / 2, 0, 0)
   })
-  const position = useControls('center', {
-    position: [-4, 3, 4.5],
-  }
-  )
+  // const position = useControls('center', {
+  //   position: [-4, 3, 4.5],
+  // }
+  // )
   return (
     <>
       <primitive object={scene} {...props} castShadow onClick={() => setZoom(!zoom)} />
       {/* {zoom ? <Image url="/wallpaper.png" position={[-2.25, 2.6, 4.95]} rotation={[0, -Math.PI, 0]} scale={[1.3, 0.8, 0.8]} /> : null} */}
-      <Frame position={[-2, 2.2, 4.5]} scale={[1, 1.3, 0.05]} url='/ideacon.png' />
+      {/* <Frame position={[-2, 2.2, 4.5]} scale={[1, 1.3, 0.05]} url='/ideacon.png' />
       <Frame position={[-2.1, 1, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
       <Frame position={[-4.03, 2.45, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
       <Frame position={[-1.03, 2.65, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
       <Frame position={[-3.05, 2.6, 4.5]} scale={[1, 1.3, 0.05]} url='/wallpaper.png' />
       <Frame position={[-3.14, 1.37, 4.5]} scale={[1.2, 1, 0.05]} url='/Planets.jpg' />
-      <Frame position={[-0.83, 1.6, 4.5]} scale={[1.2, 1, 0.05]} url='/wallpaper.png' />
+      <Frame position={[-0.83, 1.6, 4.5]} scale={[1.2, 1, 0.05]} url='/wallpaper.png' /> */}
       {/* <Image onClick={() => setZoom(!zoom)} url="/wallpaper.png" position={[-2.25, 2.6, 4.95]} rotation={[0, -Math.PI, 0]} scale={[1.3, 0.8, 0.8]} /> */}
     </>
   )
 }
 useGLTF.preload('/room.glb')
 
-function Frame({ url, position, scale, ...props }) {
-  const image = useRef()
+// function Frame({ url, position, scale, ...props }) {
+//   const image = useRef()
 
-  return (
-    <mesh
-      scale={scale}
-      position={position}>
-      <boxGeometry />
-      <meshStandardMaterial color="#090a43" metalness={0.5} roughness={0.5} envMapIntensity={2} />
-      <mesh scale={[0.9, 0.93, 0.9]} position={[0, 0, -0.2]}>
-        <boxGeometry />
-        <meshStandardMaterial toneMapped={false} fog={false} />
-      </mesh>
-      <Image position={[0, 0, -0.7]} ref={image} scale={[0.8, 0.6, 0.8]} rotation={[0, -Math.PI, 0]} url={url} />
-    </mesh>
-  )
-}
+//   return (
+//     <mesh
+//       scale={scale}
+//       position={position}>
+//       <boxGeometry />
+//       <meshStandardMaterial color="#090a43" metalness={0.5} roughness={0.5} envMapIntensity={2} />
+//       <mesh scale={[0.9, 0.93, 0.9]} position={[0, 0, -0.2]}>
+//         <boxGeometry />
+//         <meshStandardMaterial toneMapped={false} fog={false} />
+//       </mesh>
+//       <Image position={[0, 0, -0.7]} ref={image} scale={[0.8, 0.6, 0.8]} rotation={[0, -Math.PI, 0]} url={url} />
+//     </mesh>
+//   )
+// }
