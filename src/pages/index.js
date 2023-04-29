@@ -30,6 +30,7 @@ export default function Room() {
 
         <Underlay mode={active} />
         <Overlay mode={active} />
+
         {/* Dark mode switch */}
         <div style={{ position: "absolute", bottom: 40, right: 40, zIndex: 2 }}>
           {/* Circle Button  */}
@@ -101,11 +102,14 @@ export default function Room() {
                       <h1 className='margin-sm font-xlg' style={{ color: active ? "white" : "black" }}>SKILLS</h1>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "1em" }}>
                         ● <b>Languages:</b> Python, C/C++, JavaScript, HTML5, CSS3.<br />
-                        ● <b>Graphics:</b> Blender, Figma.<br />
+                        ● <b>Graphics:</b> Blender, Figma, Three.js.<br />
                         ● <b>Frontend:</b> React, Vue.js.<br />
-                        ● <b>Backend:</b> Next.js, Django, Node.js, Express.<br />
-                        ● <b>Frameworks:</b> React, Vue.js, React three fiber, three.js.<br />
-                        ● <b>Tools:</b>Git, GitHub.<br />
+                        ● <b>Backend:</b> Next.js, Django, Flask, Node.js, Express.<br />
+                        ● <b>Databases:</b> MongoDB, PostgreSQL, Sanity, MySQL.<br />
+                        ● <b>Tools:</b> Git, GitHub.<br />
+
+
+                        {/* ● <b>Frameworks:</b> React, Vue.js, React three fiber, three.js.<br /> */}
                       </p>
                     </div>
                   </div>
@@ -124,23 +128,23 @@ export default function Room() {
                   }}>
                     <h1 className='margin-sm font-xlg' style={{ color: active ? "white" : "black", paddingTop: "0.1em" }}>PROJECTS</h1>
                     <div className='margin-sm' style={{ paddingTop: "0.1em" }}>
-                      <h1 className='margin-sm font-lg' style={{ color: active ? "white" : "black" }}>Spotify Clone</h1>
+                      <h1 className='margin-sm font-lg' style={{ color: active ? "white" : "black" }}><a style={{ color: active ? "white" : "black" }} href='https://tx-03.netlify.app/' target='_blank'>Wildlife Detection</a></h1>
+                      <p className='margin-sm font-md' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
+                        ● <b>Technologies:</b> React, Next.js, Figma, CSS3, HTML5.<br />
+                        {/* ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://next-sanity-blog-eta.vercel.app/</a><br /> */}
+                        ● <b>Description:</b> • Implementing a object detection technique and training a model to detect and classify the species found in an image.
+                      </p>
+                      <h1 className='margin-sm font-lg' style={{ color: active ? "white" : "black" }}><a style={{ color: active ? "white" : "black" }} href='https://spotify-clone-6de9b.web.app/#' target='_blank'>Spotify Clone</a></h1>
                       <p className='margin-sm font-md' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
                         ● <b>Technologies:</b> React.js, Firebase, Figma, CSS3, HTML5.<br />
-                        ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://spotify-clone-6de9b.web.app/#</a><br />
+                        {/* ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://spotify-clone-6de9b.web.app/#</a><br /> */}
                         ● <b>Description:</b>Spotify-clone with React.js + Firebase Used Material-UI.
                       </p>
-                      <h1 className='margin-sm font-lg' style={{ color: active ? "white" : "black" }}>News-Events</h1>
+                      <h1 className='margin-sm font-lg' style={{ color: active ? "white" : "black" }}><a style={{ color: active ? "white" : "black" }} href='https://news-events.vercel.app/' target='_blank'>News-Events</a></h1>
                       <p className='margin-sm font-md' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
                         ● <b>Technologies:</b> React, Next.js, Figma, CSS3, HTML5.<br />
-                        ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://news-events.vercel.app/</a><br />
+                        {/* ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://news-events.vercel.app/</a><br /> */}
                         ● <b>Description:</b>Provides a platform to promote the events and conferences.
-                      </p>
-                      <h1 className='margin-sm font-lg' style={{ color: active ? "white" : "black" }}>Blog website - Medium</h1>
-                      <p className='margin-sm font-md' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
-                        ● <b>Technologies:</b> React, Next.js, Figma, CSS3, HTML5.<br />
-                        ● <b>Link:</b> <a href="" style={{ color: active ? "white" : "black" }}>https://next-sanity-blog-eta.vercel.app/</a><br />
-                        ● <b>Description:</b> This is my personal portfolio website.
                       </p>
                     </div>
                   </div>
@@ -176,7 +180,7 @@ export default function Room() {
                 {/* Letter I */}
                 {/* About me section */}
                 <div className='letter-i absolute' style={{ backgroundColor: active ? "black" : "white" }}>
-                  <h1 className='font-xlg' style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.8em 5em" }}>ABOUT ME</h1>
+                  <h1 className='font-xlg' style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.8em 4em", display: "flex", justifyContent: "center" }}>ABOUT ME</h1>
                   <div style={{
                     backgroundColor: active ? "black" : "white",
                     borderRadius: "10em 10em 10em 10em",
@@ -212,7 +216,7 @@ export default function Room() {
                 {/* Letter T */}
                 {/* About me section */}
                 <div className='letter-t absolute' style={{ backgroundColor: active ? "black" : "white" }}>
-                  <h1 className='font-xlg' style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.8em 5em" }}>ABOUT ME</h1>
+                  <h1 className='font-xlg' style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.8em 4em", display: "flex", justifyContent: "center" }}>PROJECTS++</h1>
                   <div style={{
                     backgroundColor: active ? "black" : "white",
                     borderRadius: "10em 10em 10em 10em",
@@ -228,20 +232,23 @@ export default function Room() {
                       margin: "0em 3em 0em 0em"
 
                     }}>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● 3rd year student pursuing B.E in Computer Engineering (Batch 2024) </p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of CSI DMCE tech team (2021 - current)</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of GDSC web dev team (2021 - 2022)</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Web dev intern at LetsGrowMore Internship Program.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>●<a href='https://planets-gilt.vercel.app/' style={{ color: active ? "white" : "black" }} target='_blank'><b>Planets</b></a> - Planet themed website with GSAP for graphical animation.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>●<a href='https://ruchi-115.github.io/Plantae-QR-Garden/' style={{ color: active ? "white" : "black" }} target='_blank'><b>QR-Plantae</b></a> - This website provides you with QR codes for your garden. Provides consumer driven technology at fingertips.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● <a href='https://ruchi-115.github.io/Soundwave.github.io/index.html' style={{ color: active ? "white" : "black" }} target='_blank'><b>Soundwave</b></a> - Music service platform website frontend design.</p>
+                      {/* <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Topics include database design, scalability, security, and user experience. Through hands-on projects, learnt to write and use APIs, create interactive */}
+                      {/* UIs, and leverage cloud services like GitHub and Heroku</p> */}
                     </div>
                     <div className='letter-t-inside' style={{
                       backgroundColor: active ? "#0f0f0f" : "#99cad1",
 
                     }}>
                       {/* <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1> */}
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Interests Web dev and 3d graphic designing.</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Likes playing football and video games. </p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Participated in more than 10+ hackathons.</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Open Source project contributer and maintainer.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● <a href='https://next-sanity-blog-eta.vercel.app/' style={{ color: active ? "white" : "black" }} target='_blank'><b>Blog website Medium</b></a> - Next.js + Sanity.io Provides a platform to promote the events and conferences.</p>
+                      {/* <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Google Clone
+
+                        Google-clone with React.js and Firebase. Used Material-UI, Reach Hooks. </p> */}
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● <a href='https://doctor-chatbot-11.vercel.app/' style={{ color: active ? "white" : "black" }} target='_blank'><b>Doctorbot</b></a> - chatbots as your doctor are touted to providing personalized care & improving the patient experience through text.  </p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● <a href='https://ideacon-gdsc.vercel.app/' style={{ color: active ? "white" : "black" }} target='_blank'><b>Ideacon</b></a> - Global Idea Sharing Platform, where great minds meet!</p>
                     </div>
                   </div>
                 </div>
@@ -254,23 +261,34 @@ export default function Room() {
                     marginBottom: "3em",
                     marginTop: "3em"
                   }}>
-                    {/* <h1 className='font-xlg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.1em" }}>ACHIEVEMENTS 🏆</h1> */}
-                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>1st Place at SIH(Smart India Hackathon) 2022</h3>
-                    <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
-                      ● <b>Problem statement:</b> 'Grade-wise iron-ore accounting from mines to end-points to prevent loss of revenue to the state'<br />
-                      ● <b>Details:</b> <a href="https://www.linkedin.com/posts/ruchita-sonawale-475063196_sih2022-smartindiahackathon-smartindiahackathon2022-activity-6970796902627897345-XnTy?utm_source=share&utm_medium=member_desktop" style={{ color: active ? "white" : "black" }}>More info</a><br />
-                    </p>
+                    <h1 className='font-xlg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.1em" }}>CONTACT ME</h1>
+                    <div style={{ borderRadius: "1em", border: "solid 2px black", padding: "1em 0em", margin: "2em 0em" }}>
+                      <p style={{ display: " flex", padding: "0em 1em", justifyContent: "space-evenly" }}>
+                        <a href="https://www.linkedin.com/in/ruchita-sonawale-475063196/" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/1384/1384046.png" alt="linkedin" height={40} width={40} ></img></a>
+                        <a href="https://github.com/ruchi-115?tab=overview&from=2021-09-01&to=2021-09-30" style={{ padding: "0em 0.5em" }} target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/38/38401.png" alt="github" height={40} width={40} ></img></a>
+                        <a href="https://www.instagram.com/ruchita_115/" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="instagram" height={40} width={40} ></img></a>
+                        <a href="https://medium.com/@ruchitasonawale115" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/3670/3670068.png" alt="medium" height={40} width={40} ></img></a>
+                      </p>
+                    </div>
+                    {/* <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Github</h3>
+                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Linkedin</h3>
+                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Instagram</h3>
+                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Medium</h3> */}
+                    {/* <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}> */}
+                    {/* ● <b>Problem statement:</b> 'Grade-wise iron-ore accounting from mines to end-points to prevent loss of revenue to the state'<br /> */}
+                    {/* ● <b>Details:</b> <a href="https://www.linkedin.com/posts/ruchita-sonawale-475063196_sih2022-smartindiahackathon-smartindiahackathon2022-activity-6970796902627897345-XnTy?utm_source=share&utm_medium=member_desktop" style={{ color: active ? "white" : "black" }}>More info</a><br /> */}
+                    {/* </p> */}
                   </div>
                   <div className='letter-a-inside' style={{
                     backgroundColor: active ? "#0f0f0f" : "#99cad1",
                     borderRadius: "8em 8em 4em 4em",
                   }}>
                     {/* <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1> */}
-                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>1st Place at PRISM 2022</h3>
-                    <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>
-                      ● <b>Problem statement:</b> 'Wildlife Detection and Evaluaion using camera-trap images using Deep Learning'<br />
-                      ● <b>Details:</b> Research idea contest in collaboration with Indo Korea Science and Technology Centre (IKST)<a href="https://www.linkedin.com/posts/ruchita-sonawale-475063196_prism2022-machinelearning-prism2022-activity-7029450773381955584-i1qo?utm_source=share&utm_medium=member_desktop" style={{ color: active ? "white" : "black" }}> More Info.</a><br />
-                    </p>
+                    <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em" }}>Thank you for watching until the end. Check out the dark mode!</h3>
+                    {/* <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}> */}
+                    {/* ● <b>Problem statement:</b> 'Wildlife Detection and Evaluaion using camera-trap images using Deep Learning'<br /> */}
+                    {/* ● <b>Details:</b> Research idea contest in collaboration with Indo Korea Science and Technology Centre (IKST)<a href="https://www.linkedin.com/posts/ruchita-sonawale-475063196_prism2022-machinelearning-prism2022-activity-7029450773381955584-i1qo?utm_source=share&utm_medium=member_desktop" style={{ color: active ? "white" : "black" }}> More Info.</a><br /> */}
+                    {/* </p> */}
                   </div>
                 </div>
 
@@ -292,7 +310,7 @@ export default function Room() {
         {/* // ) : (
         //   <LoadingScreen />
         // )} */}
-      </div>
+      </div >
     </>
 
   )

@@ -318,8 +318,95 @@
     width: 25em;
     height: 18em;
   }
-  
 
+ }
+
+ @media (max-width: 393px) {
+  .letter-r {
+    width: 22em;
+    height: 14em;
+  }
+  .letter-r-inside {
+    width: 18em;
+    height: 10em;
+  }
+  .font-xlg {
+    font-size: 1.6em;
+    font-weight: 600;
+    letter-spacing: -3;
+  }
+  .font-lg {
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: -3;
+  }
+  .font-md {
+    font-size: 0.8em;
+    font-weight: 500;
+    letter-spacing: -3;
+  }
+  .letter-u {
+    width: 22em;
+    height: 30em;
+    top: 1190px;
+  }
+  .letter-u-inside {
+    width: 18em;
+    height: 47em;
+    margin-top: 22em;
+  }
+  .letter-u-bg {
+    width: 22em;
+    height: 30em;
+    top: 1520px;
+  }
+  .letter-c {
+    width: 22em;
+    height: 40em;
+    top: 2000px;
+  }
+  .letter-c-inside {
+    width: 20em;
+    height: 36em;
+    margin-left: 2em;
+  }
+  .letter-h {
+    width: 22em;
+    height: 42em;
+    top: 2640px;
+  }
+  .letter-h-inside {
+    width: 18em;
+    height: 20em;
+  }
+  .letter-i {
+    width: 22em;
+    height: 40em;
+    top: 3270px;
+  }
+  .letter-i-inside {
+    width: 14em;
+    height: 28em;
+  }
+
+  .letter-t {
+    width: 22em;
+    height: 36em;
+    top: 3850px;
+  }
+  .letter-t-inside {
+    width: 14em;
+    height: 32em;
+  }
+  .letter-a {
+    width: 22em;
+    height: 42em;
+    top: 4450px;
+  }
+  .letter-a-inside {
+    width: 18em;
+    height: 18em;
+  }
 
  }
 
