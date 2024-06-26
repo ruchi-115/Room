@@ -90,13 +90,14 @@ export default function Room() {
                   <div className='letter-u-inside' style={{
                     backgroundColor: active ? "#0f0f0f" : "#99cad1",
                   }}>
-                    <p className="font-md margin-sm" style={{ color: active ? "white" : "black" }}>I am a creative web developer with a passion for creating beautiful
-                      and functional web applications. I have a background in graphic design and a love for all things creative.
-                      I am a self-taught developer who is always looking to learn new things and improve my skills. I am currently looking
-                      for a full time position as a developer.</p>
+                    <p className="font-md margin-sm" style={{ color: active ? "white" : "black" }}>I am a software developer with a passion for creating beautiful and functional web applications.
+                  With a background in graphic design and a love for all things creative, I bring a unique blend of technical and artistic skills to my work. 
+                  I hold a Bachelor's degree in Computer Engineering and am currently pursuing my Master's in Computer Science at NYU.
+
+</p>
                     <p className="font-md margin-sm" style={{ color: active ? "white" : "black" }}>
-                      I am constantly learning and evolving my skills to stay up-to-date with the latest trends and technologies,
-                      and I am dedicated to delivering high-quality, user-friendly designs.</p>
+                     I am committed to staying up-to-date with the latest trends and technologies in software development, continually learning and evolving my skills. 
+                       My dedication to delivering high-quality, user-friendly designs ensures that each project I undertake meets both aesthetic and functional standards.</p>
 
                     <div className='margin-sm' style={{ paddingTop: "7em" }}>
                       <h1 className='margin-sm font-xlg' style={{ color: active ? "white" : "black" }}>SKILLS</h1>
