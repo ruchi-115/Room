@@ -102,12 +102,12 @@ export default function Room() {
                     <div className='margin-sm' style={{ paddingTop: "7em" }}>
                       <h1 className='margin-sm font-xlg' style={{ color: active ? "white" : "black" }}>SKILLS</h1>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "1em" }}>
-                        ● <b>Languages:</b> Python, C/C++, JavaScript, HTML5, CSS3.<br />
+                        ● <b>Languages:</b> Python, C/C++, JavaScript.<br />
                         ● <b>Graphics:</b> Blender, Figma, Three.js.<br />
-                        ● <b>Frontend:</b> React, Vue.js.<br />
-                        ● <b>Backend:</b> Next.js, Django, Flask, Node.js, Express.<br />
-                        ● <b>Databases:</b> MongoDB, PostgreSQL, Sanity, MySQL.<br />
-                        ● <b>Tools:</b> Git, GitHub.<br />
+                        ● <b>Frontend:</b> HTML5, CSS3, React, Vue.js.<br />
+                        ● <b>Backend:</b>Django, Flask, Next.js, Node.js, Express.<br />
+                        ● <b>Databases:</b> MongoDB, Firebase, PostgreSQL, Sanity, MySQL.<br />
+                        ● <b>Tools:</b>Git, VSCode, PyCharm, GitHub, MS Office.<br />
 
 
                         {/* ● <b>Frameworks:</b> React, Vue.js, React three fiber, three.js.<br /> */}
@@ -197,17 +197,17 @@ export default function Room() {
                       margin: "0em 3em 0em 0em"
 
                     }}>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● 3rd year student pursuing B.E in Computer Engineering (Batch 2024) </p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Pursuing MS in Computer Sciences (Fall 2024 - Present) </p>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of CSI DMCE tech team (2021 - current)</p>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of GDSC web dev team (2021 - 2022)</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Web dev intern at LetsGrowMore Internship Program.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Web dev intern at LetsGrowMore, TechnoHacks Edutech Ltd. and Sparks Foundation.</p>
                     </div>
                     <div className='letter-i-inside' style={{
                       backgroundColor: active ? "#0f0f0f" : "#99cad1",
 
                     }}>
                       {/* <h1 style={{ color: active ? "white" : "black", paddingTop: "0.3em", margin: "0.3em", fontSize: '2.5em' }}>CONTACT</h1> */}
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Interests Web dev and 3d graphic designing.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Interests Web dev, sys design and 3d graphic designing.</p>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Likes playing football and video games. </p>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Participated in more than 10+ hackathons.</p>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Open Source project contributer and maintainer.</p>
