@@ -92,7 +92,7 @@ export default function Room() {
                   }}>
                     <p className="font-md margin-sm" style={{ color: active ? "white" : "black" }}>I am a software developer with a passion for creating beautiful and functional web applications.
                   With a background in graphic design and a love for all things creative, I bring a unique blend of technical and artistic skills to my work. 
-                  I hold a Bachelor's degree in Computer Engineering and am currently pursuing my Master's in Computer Science at NYU.
+                  I hold a Bachelor's degree in Computer Engineering and currently pursuing my Master's in Computer Science at NYU.
 
 </p>
                     <p className="font-md margin-sm" style={{ color: active ? "white" : "black" }}>
@@ -268,7 +268,7 @@ export default function Room() {
                         <a href="https://www.linkedin.com/in/ruchita-sonawale-475063196/" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/1384/1384046.png" alt="linkedin" height={40} width={40} ></img></a>
                         <a href="https://github.com/ruchi-115?tab=overview&from=2021-09-01&to=2021-09-30" style={{ padding: "0em 0.5em" }} target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/38/38401.png" alt="github" height={40} width={40} ></img></a>
                         <a href="https://www.instagram.com/ruchita_115/" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="instagram" height={40} width={40} ></img></a>
-                        <a href="https://medium.com/@ruchitasonawale115" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/3670/3670068.png" alt="medium" height={40} width={40} ></img></a>
+                        {/*<a href="https://medium.com/@ruchitasonawale115" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/3670/3670068.png" alt="medium" height={40} width={40} ></img></a> */}
                       </p>
                     </div>
                     {/* <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Github</h3>
