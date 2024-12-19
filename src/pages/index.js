@@ -96,8 +96,8 @@ export default function Room() {
 
 </p>
                     <p className="font-md margin-sm" style={{ color: active ? "white" : "black" }}>
-                     I am committed to staying up-to-date with the latest trends and technologies in software development, continually learning and evolving my skills. 
-                       My dedication to delivering high-quality, user-friendly designs ensures that each project I undertake meets both aesthetic and functional standards.</p>
+                     I am committed to staying up-to-date with the latest trends and technologies in software development and computer security, continually learning and evolving my skills. 
+                       My dedication to delivering high-quality, user-friendly designs ensures that each project I undertake meets both aesthetic and secure functional standards.</p>
 
                     <div className='margin-sm' style={{ paddingTop: "7em" }}>
                       <h1 className='margin-sm font-xlg' style={{ color: active ? "white" : "black" }}>SKILLS</h1>
@@ -108,7 +108,7 @@ export default function Room() {
                         ● <b>Backend:</b>Django, Flask, Next.js, Node.js, Express.<br />
                         ● <b>Databases:</b> MongoDB, Firebase, PostgreSQL, Sanity, MySQL.<br />
                         ● <b>Tools:</b>Git, VSCode, PyCharm, GitHub, MS Office.<br />
-
+                        ● <b>Security:</b> Splunk, Wireshark, Metasploit, Nessus, SEED Labs, Immersive Labs.<br />
 
                         {/* ● <b>Frameworks:</b> React, Vue.js, React three fiber, three.js.<br /> */}
                       </p>
