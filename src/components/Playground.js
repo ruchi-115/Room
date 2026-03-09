@@ -91,15 +91,26 @@ function InteractiveRoom({ onObjectClick, selectedObject, darkMode }) {
   )
 }
 
+// End-of-scroll camera position derived from RoomCube useFrame:
+// r1=r2=r3=1 → pos = [sin(1)*-12, sin(1)*2, sin(1)*-8] = [-10.09, 1.68, -6.73], lookAt = [0.01,0,0]
+const END_CAM_POS = new THREE.Vector3(-10.09, 1.68, -6.73)
+const END_CAM_LOOKAT = new THREE.Vector3(0.01, 0, 0)
+
 function CameraController({ selectedObject, resetCamera }) {
   const { camera } = useThree()
-  const targetPosition = useRef(new THREE.Vector3(-5, 2, 5))
-  const targetLookAt = useRef(new THREE.Vector3(0, 0, 0))
+  const targetPosition = useRef(END_CAM_POS.clone())
+  const targetLookAt = useRef(END_CAM_LOOKAT.clone())
+
+  // Set camera to end-scroll position immediately on mount
+  useEffect(() => {
+    camera.position.copy(END_CAM_POS)
+    camera.lookAt(END_CAM_LOOKAT)
+  }, [camera])
 
   useEffect(() => {
     if (resetCamera) {
-      targetPosition.current.set(-5, 2, 5)
-      targetLookAt.current.set(0, 0, 0)
+      targetPosition.current.copy(END_CAM_POS)
+      targetLookAt.current.copy(END_CAM_LOOKAT)
     } else if (selectedObject) {
       // Zoom positions for different objects
       const zoomPositions = {
@@ -263,7 +274,7 @@ export default function Playground({ darkMode, onClose }) {
       <Canvas
         dpr={[1, 1.5]}
         shadows
-        camera={{ position: [-5, 2, 5], fov: 50 }}
+        camera={{ position: [-10.09, 1.68, -6.73], fov: 50 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
         <color attach="background" args={[darkMode ? '#0f0f0f' : '#99cad1']} />
@@ -296,8 +307,9 @@ export default function Playground({ darkMode, onClose }) {
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
+          target={[0.01, 0, 0]}
           minDistance={2}
-          maxDistance={15}
+          maxDistance={20}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI / 2}
         />
