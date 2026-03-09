@@ -7,28 +7,56 @@
   
   html,
   body,
-  #root {
+  #root,
+  #__next {
     margin: 0;
     padding: 0;
     overflow: hidden;
     font-family: 'Inter var', sans-serif;
+    /* Performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* GPU acceleration for smooth animations */
+  canvas {
+    will-change: transform;
   }
 
   a {
    text-decoration: none;
+   transition: opacity 0.2s ease;
   }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
   /* light-dark mode button */
 .button {
   color: white;
   border: none;
   padding: 5px;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 600;
   height: 50px;
   width: 50px;
-  box-shadow: 0 2px 4px darkslategray;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   border-radius: 50%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.button:active {
+  transform: scale(0.95);
 }
 
 .absolute {

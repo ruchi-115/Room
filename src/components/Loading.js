@@ -1,75 +1,113 @@
-import styled from "styled-components";
+import { useProgress } from '@react-three/drei'
+import { useEffect, useState } from 'react'
 
-const Screen = styled.div`
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  opacity: 0;
-  animation: fade 0.4s ease-in forwards;
-  background: black;
+export default function LoadingScreen({ onLoaded }) {
+  const { progress, active } = useProgress()
+  const [show, setShow] = useState(true)
 
-  @keyframes fade {
-    0% {
-      opacity: 0.4;
+  useEffect(() => {
+    if (progress === 100 && !active) {
+      const timer = setTimeout(() => {
+        setShow(false)
+        if (onLoaded) onLoaded()
+      }, 500)
+      return () => clearTimeout(timer)
     }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-`;
+  }, [progress, active, onLoaded])
 
-const Balls = styled.div`
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  if (!show) return null
 
-  .ball {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #1b5299;
-    margin: 0 6px 0 0;
-    animation: oscillate 0.7s ease-in forwards infinite;
-  }
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1000,
+        transition: 'opacity 0.5s ease-out',
+        opacity: progress === 100 ? 0 : 1,
+        pointerEvents: progress === 100 ? 'none' : 'all',
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "'Antonio', sans-serif",
+          fontSize: '2.5rem',
+          fontWeight: 700,
+          letterSpacing: '-2px',
+          color: '#99cad1',
+          marginBottom: '2rem',
+          textAlign: 'center',
+        }}
+      >
+        RUCHITA&apos;S PORTFOLIO
+      </div>
 
-  .one {
-    animation-delay: 0.5s;
-  }
-  .two {
-    animation-delay: 1s;
-  }
-  .three {
-    animation-delay: 2s;
-  }
+      <div
+        style={{
+          width: '280px',
+          height: '4px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '2px',
+          overflow: 'hidden',
+          marginBottom: '1rem',
+        }}
+      >
+        <div
+          style={{
+            width: `${progress}%`,
+            height: '100%',
+            background: 'linear-gradient(90deg, #99cad1, #007589)',
+            borderRadius: '2px',
+            transition: 'width 0.3s ease-out',
+          }}
+        />
+      </div>
 
-  @keyframes oscillate {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(20px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-`;
+      <div
+        style={{
+          fontSize: '0.9rem',
+          color: 'rgba(255,255,255,0.6)',
+          fontFamily: "'Inter var', sans-serif",
+        }}
+      >
+        Loading 3D Room... {Math.round(progress)}%
+      </div>
 
-const LoadingScreen = () => {
-    return (
-        <Screen>
-            <Balls>
-                <div className="ball one"></div>
-                <div className="ball two"></div>
-                <div className="ball three"></div>
-            </Balls>
-        </Screen>
-    );
-};
+      <div
+        style={{
+          display: 'flex',
+          gap: '8px',
+          marginTop: '2rem',
+        }}
+      >
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            style={{
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
+              background: '#99cad1',
+              animation: `bounce 0.6s ease-in-out ${i * 0.15}s infinite alternate`,
+            }}
+          />
+        ))}
+      </div>
 
-export default LoadingScreen;
+      <style>{`
+        @keyframes bounce {
+          0% { transform: translateY(0); opacity: 0.4; }
+          100% { transform: translateY(-10px); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  )
+}
