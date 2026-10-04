@@ -1,8 +1,7 @@
 import React from "react"
 
 export default function Overlay({ mode, onPlaygroundOpen }) {
-    // Replace this with your actual resume URL (Google Drive, Dropbox, etc.)
-    const resumeUrl = "https://drive.google.com/your-resume-link"
+    const resumeUrl = "/Ruchita_Sonawale_Resume.pdf"
     
     return (
         <div style={{ 
