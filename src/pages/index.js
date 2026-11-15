@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState, useRef, useLayoutEffect } from 'react'
+import { Suspense, useEffect, useState, useRef, useLayoutEffect, useCallback } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { Plane, ScrollControls, Scroll, useScroll, useGLTF, Image, useVideoTexture, useTexture, useAspect, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
@@ -6,11 +6,38 @@ import { useControls } from 'leva'
 import Overlay from '../components/Overlay.js'
 import Underlay from '@/components/Underlay.js'
 import LoadingScreen from '@/components/Loading.js'
+import Head from 'next/head'
+import RoomNav from '@/components/room/RoomNav.js'
+import CameraRig from '@/components/room/CameraRig.js'
+import TerminalPanel from '@/components/room/TerminalPanel.js'
+import ProjectsPanel from '@/components/room/ProjectsPanel.js'
+import ContactPanel from '@/components/room/ContactPanel.js'
 // import Frame from '@/components/Frame.js'
 
 
 export default function Room() {
   const [active, setActive] = useState(false);
+  const [view, setView] = useState('home')
+  const [arrivedView, setArrivedView] = useState(null)
+  const anchorsRef = useRef({})
+  const registerAnchor = useCallback((key) => (el) => {
+    if (el) anchorsRef.current[key] = el
+    else delete anchorsRef.current[key]
+  }, [])
+  const goTo = useCallback((next) => {
+    setArrivedView(null)
+    setView(next)
+  }, [])
+  const zoomed = view !== 'home'
+
+  useEffect(() => {
+    if (!zoomed) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') goTo('home')
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [zoomed, goTo])
   // const light = useControls('', {
   //   position: [0, 0, 0],
   // intensity: 5,
@@ -21,20 +48,40 @@ export default function Room() {
 
   return (
     <>
-      <div style={{
+      <Head>
+        <title>Ruchita Sonawale — Full Stack Developer</title>
+        <meta name="description" content="Interactive 3D room portfolio of Ruchita Sonawale, full stack developer. Explore projects, read about me, and get in touch." />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content={active ? '#000000' : '#99cad1'} />
+      </Head>
+      <div className="room-root" data-theme={active ? 'dark' : 'light'} data-zoomed={zoomed} style={{
         width: "100%",
-        height: "100vh",
+        height: "100dvh",
         backgroundColor: active ? "black" : "#99cad1",
         color: active ? 'white' : 'black',
       }} >
 
-        <Underlay mode={active} />
+        <div className="home-only" aria-hidden={zoomed}>
+          <Underlay mode={active} />
+        </div>
         <Overlay mode={active} />
 
+        <RoomNav view={view} onChange={goTo} />
+
+        {zoomed && (
+          <button type="button" className="room-back" onClick={() => goTo('home')}>
+            <span aria-hidden="true">{'←'}</span> Back to room
+          </button>
+        )}
+
+        {view === 'about' && <TerminalPanel open={arrivedView === 'about'} registerAnchor={registerAnchor} onNavigate={goTo} />}
+        {view === 'projects' && <ProjectsPanel open={arrivedView === 'projects'} registerAnchor={registerAnchor} />}
+        {view === 'contact' && <ContactPanel open={arrivedView === 'contact'} registerAnchor={registerAnchor} />}
+
         {/* Dark mode switch */}
-        <div style={{ position: "absolute", bottom: 40, right: 40, zIndex: 2 }}>
+        <div className="theme-toggle" style={{ position: "absolute", bottom: 40, right: 40, zIndex: 2 }}>
           {/* Circle Button  */}
-          <button onClick={() => setActive(!active)} className="button"
+          <button onClick={() => setActive(!active)} className="button" aria-label={active ? 'Switch to light mode' : 'Switch to dark mode'}
             style={{
               backgroundColor: active ? "#99cad1" : "#0f0f0f",
             }}>{active ? "𖤓" : "☽"}</button>
@@ -66,9 +113,11 @@ export default function Room() {
 
           <Suspense fallback={null}>
             {/* Wrap contents you want to scroll into <ScrollControls> */}
-            <ScrollControls pages={10}>
+            <ScrollControls pages={10} enabled={!zoomed}>
+              <CameraRig view={view} anchorsRef={anchorsRef} onArrive={setArrivedView} />
               <RoomCube scale={1.5} position={[-2.7, -3.2, 1.67]} rotation={[0, 3.14, 0]} castShadow />
               <Scroll html>
+                <div className='scroll-content' style={{ opacity: zoomed ? 0 : 1, pointerEvents: zoomed ? 'none' : 'auto' }} aria-hidden={zoomed}>
                 {/* Letter R */}
                 <div className='absolute letter-r' style={{
                   backgroundColor: active ? "black" : "white",
@@ -271,6 +320,7 @@ export default function Room() {
                         {/*<a href="https://medium.com/@ruchitasonawale115" target='_blank'><img src="https://cdn-icons-png.flaticon.com/512/3670/3670068.png" alt="medium" height={40} width={40} ></img></a> */}
                       </p>
                     </div>
+                    <button type="button" className="letter-cta" onClick={() => goTo('contact')}>Write me a message</button>
                     {/* <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Github</h3>
                     <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Linkedin</h3>
                     <h3 className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>Instagram</h3>
@@ -292,10 +342,8 @@ export default function Room() {
                     {/* </p> */}
                   </div>
                 </div>
-
-
+                </div>
               </Scroll>
-
             </ScrollControls>
 
             {/* <mesh scale={[10, 10]}>
@@ -347,56 +395,18 @@ function Video() {
 }
 
 function RoomCube({ ...props }) {
-  // This hook gives you offets, ranges and other useful things
-  const scroll = useScroll()
   const { scene, nodes } = useGLTF('/room.glb')
-  const [zoom, setZoom] = useState(false)
   // const {actions} = useAnimations(animations, scene)
   useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
   // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
-  useFrame((state) => {
-    // The offset is between 0 and 1, you can apply it to your models any way you like
-    const r1 = scroll.range(0 / 7, 0.9 / 7)
-    const r2 = scroll.range(1 / 7, 1.5 / 7)
-    const r3 = scroll.range(2 / 7, 2.5 / 7)
-    const r4 = scroll.curve(3 / 7, 3.5 / 7)
-    const r5 = scroll.curve(4 / 7, 4.5 / 7)
-    const dummy = new THREE.Vector3()
-
-    // zoom ? state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12 ,zoom ?  2 : Math.sin(r2) * 2, zoom ? 2: Math.sin(r3) * -8), 0.05) : (state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8))
-    // state.camera.position.lerp(dummy.set(zoom ? -2 : Math.sin(r1) * -12, zoom ? 2 : Math.sin(r2) * 2, zoom ? 2 : Math.sin(r3) * -8), 0.08)
-    // zoom ? state.camera.lookAt(-2, 2, 5) : state.camera.lookAt(0.01, 0, 0)
-    state.camera.position.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8)
-    state.camera.lookAt(0.01, 0, 0)
-
-    // state.camera.position.lerp(state.camera.position, 0.1)
-
-    // state.camera.position.setX(Math.sin(r1) * -12)
-    // state.camera.position.setY(Math.sin(r2) * 2)
-    // state.camera.position.setZ(Math.sin(r3) * -8)
-    // state.camera.position.setY(Math.sin(r4) * 2)
-    // state.camera.position.setX(r3 * -12)
-    // state.camera.position.setZ(r4 * -8)
-    // state.camera.position.setY(Math.cos(r5) * 6)
-
-    // state.camera.lookAt(0.01, 0, 0)
-    state.camera.updateProjectionMatrix()
-    // state.camera.position.setX(Math.sin(r4) * -12)
-    // state.camera.rotateY(Math.cos(r4) * 8)
-    // state.camera.lookAt(-1, 1, 25)
-
-
-    // console.log(state.camera.position)
-
-    // state.camera.rotation.set(Math.PI / 2, 0, 0)
-  })
+  // Camera movement (scroll on the home view, zoom to monitor/frames/shelf) lives in CameraRig.
   // const position = useControls('center', {
   //   position: [-4, 3, 4.5],
   // }
   // )
   return (
     <>
-      <primitive object={scene} {...props} castShadow onClick={() => setZoom(!zoom)} />
+      <primitive object={scene} {...props} castShadow />
       {/* {zoom ? <Image url="/wallpaper.png" position={[-2.25, 2.6, 4.95]} rotation={[0, -Math.PI, 0]} scale={[1.3, 0.8, 0.8]} /> : null} */}
       {/* <Frame position={[-2, 2.2, 4.5]} scale={[1, 1.3, 0.05]} url='/ideacon.png' />
       <Frame position={[-2.1, 1, 4.5]} scale={[0.8, 1, 0.05]} url='/wallpaper.png' />
