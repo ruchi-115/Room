@@ -58,26 +58,6 @@
 }
 
 /* Letter-wise div css styling */
-.letter-r {
-  /* font-family: 'Antonio', sans-serif; */
-  width: 38em;
-  height: 18em;
-  border-radius: 0em 15em 15em 0em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 1024px;
-}
-
-.letter-r-inside {
-  width: 33em;
-  height: 12em;
-  display: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  border-radius: 5em 15em 15em 5em;
-}
-
 .letter-u {
   font-family: 'Antonio', sans-serif;
   width: 36em;
@@ -234,14 +214,6 @@
 /* media queries */
 /* // X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
-  .letter-r {
-    width: 29em;
-    height: 14em;
-  }
-  .letter-r-inside {
-    width: 25em;
-    height: 10em;
-  }
   .font-xlg {
     font-size: 1.8em;
     font-weight: 600;
@@ -322,14 +294,6 @@
  }
 
  @media (max-width: 393px) {
-  .letter-r {
-    width: 22em;
-    height: 14em;
-  }
-  .letter-r-inside {
-    width: 18em;
-    height: 10em;
-  }
   .font-xlg {
     font-size: 1.6em;
     font-weight: 600;
@@ -692,6 +656,87 @@
   animation: room-blink 1s steps(1) infinite;
 }
 
+/* Project pager: next/previous 3 projects */
+.frame-pager {
+  position: absolute;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.frame-pager__controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--room-paper);
+  color: var(--room-ink);
+  box-shadow: 0 4px 16px rgba(15, 15, 15, 0.2);
+}
+
+.frame-pager__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--room-ink);
+  color: var(--room-paper);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.frame-pager__btn:focus-visible {
+  outline: 2px solid var(--room-teal);
+  outline-offset: 2px;
+}
+
+.frame-pager__count {
+  min-width: 48px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+/* Socials on the contact form */
+.shelf-socials {
+  display: flex;
+  gap: 8px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shelf-socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d0d0d0;
+  border-radius: 50%;
+  background: var(--room-paper);
+  transition: border-color 0.2s ease;
+}
+
+.shelf-socials__link:hover,
+.shelf-socials__link:focus-visible {
+  border-color: var(--room-ink);
+}
+
+.shelf-socials__link img {
+  width: 20px;
+  height: 20px;
+}
+
 /* Project frames */
 .frame-list {
   margin: 0;
@@ -970,6 +1015,34 @@
     font-size: 20px;
     font-weight: 700;
     outline: none;
+  }
+
+  .frame-pager {
+    position: sticky;
+    top: -16px;
+    z-index: 1;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    justify-content: space-between;
+    gap: 12px;
+    margin: -16px -16px 12px;
+    padding: 16px 16px 8px;
+    background: var(--room-paper);
+  }
+
+  .frame-pager .room-panel__sheet-title {
+    margin-bottom: 0;
+  }
+
+  .frame-pager__controls {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .frame-pager__btn {
+    width: 40px;
+    height: 40px;
   }
 
   .frame-list {

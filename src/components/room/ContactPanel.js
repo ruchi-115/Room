@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { SOCIALS } from './views'
 
 const EMPTY = { name: '', email: '', message: '', company: '' }
 
@@ -42,6 +43,16 @@ export default function ContactPanel({ open, registerAnchor }) {
             Leave a note on the shelf
           </h2>
           <p className="shelf-form__sub">{"I'll get back to you at the email you share."}</p>
+          <ul className="shelf-socials" aria-label="Find me elsewhere">
+            {SOCIALS.map((s) => (
+              <li key={s.id}>
+                <a className="shelf-socials__link" href={s.href} target="_blank" rel="noopener noreferrer">
+                  <img src={s.icon} alt="" width={20} height={20} />
+                  <span className="sr-only">{`${s.label} (opens in a new tab)`}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {status === 'sent' ? (

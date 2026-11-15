@@ -21,9 +21,9 @@ export const VIEWS = {
     height: 2.8,
     fill: 0.92,
     anchors: {
-      wildlife: { center: [-2.572, 1.241, 4.95], width: 2.083 * 0.88, height: 1.386 * 0.86 },
-      spotify: { center: [-2.275, 2.645, 4.95], width: 1.5 * 0.86, height: 1.1 * 0.84 },
-      news: { center: [-0.586, 2.075, 4.95], width: 1.5 * 0.86, height: 2.259 * 0.9 },
+      frame0: { center: [-2.572, 1.241, 4.95], width: 2.083 * 0.88, height: 1.386 * 0.86 },
+      frame1: { center: [-2.275, 2.645, 4.95], width: 1.5 * 0.86, height: 1.1 * 0.84 },
+      frame2: { center: [-0.586, 2.075, 4.95], width: 1.5 * 0.86, height: 2.259 * 0.9 },
     },
   },
   contact: {
@@ -46,7 +46,24 @@ export const TABS = [
   { id: 'contact', label: 'Contact' },
 ]
 
+export const FRAMES_PER_PAGE = 3
+
+export const SOCIALS = [
+  { id: 'linkedin', label: 'LinkedIn', icon: '/socials/linkedin.svg', href: 'https://www.linkedin.com/in/ruchita-sonawale-475063196/' },
+  { id: 'github', label: 'GitHub', icon: '/socials/github.svg', href: 'https://github.com/ruchi-115' },
+  { id: 'instagram', label: 'Instagram', icon: '/socials/instagram.svg', href: 'https://www.instagram.com/ruchita_115/' },
+]
+
 export const PROJECTS = [
+  {
+    id: 'codemaven',
+    title: 'CodeMaven: Coding Mentor',
+    image: '/projects/codemaven.png',
+    summary:
+      'AI coding extension built at HackNYU 2025. Real-time debugging help and instant code feedback from GPT-4, Claude and Gemini, right inside the IDE.',
+    tech: ['TypeScript', 'React', 'Judge0 API', 'LLMs'],
+    href: 'https://github.com/ruchi-115',
+  },
   {
     id: 'wildlife',
     title: 'Wildlife Detection',
@@ -71,5 +88,53 @@ export const PROJECTS = [
     summary: 'A platform for promoting events and conferences, with event listings and detail pages.',
     tech: ['React', 'Next.js', 'Figma'],
     href: 'https://news-events.vercel.app/',
+  },
+  {
+    id: 'planets',
+    title: 'Planets',
+    image: '/Planets.jpg',
+    summary: 'A planet-themed website with GSAP-driven graphical animation.',
+    tech: ['JavaScript', 'GSAP', 'CSS3'],
+    href: 'https://planets-gilt.vercel.app/',
+  },
+  {
+    id: 'ideacon',
+    title: 'Ideacon',
+    image: '/ideacon.png',
+    summary: 'A global idea-sharing platform where great minds meet.',
+    tech: ['React', 'Next.js'],
+    href: 'https://ideacon-gdsc.vercel.app/',
+  },
+  {
+    id: 'doctorbot',
+    title: 'Doctorbot',
+    image: '/projects/doctorbot.png',
+    summary: 'A healthcare chatbot that offers personalized care and a better patient experience through text.',
+    tech: ['JavaScript', 'Chatbot', 'Vercel'],
+    href: 'https://doctor-chatbot-11.vercel.app/',
+  },
+  {
+    id: 'blog',
+    title: 'Blog Website',
+    image: '/projects/blog.png',
+    summary: 'A Medium-style blog built with Next.js and Sanity.io as the headless CMS.',
+    tech: ['Next.js', 'Sanity.io'],
+    href: 'https://next-sanity-blog-eta.vercel.app/',
+  },
+  {
+    id: 'qr-plantae',
+    title: 'QR-Plantae',
+    image: '/projects/qr-plantae.png',
+    summary: 'QR codes for your garden: scan a plant to get its details, consumer-driven tech at your fingertips.',
+    tech: ['HTML5', 'CSS3', 'JavaScript'],
+    href: 'https://ruchi-115.github.io/Plantae-QR-Garden/',
+  },
+  {
+    id: 'soundwave',
+    title: 'Soundwave',
+    image: '/projects/soundwave.png',
+    summary: 'Frontend design for a music service platform.',
+    tech: ['HTML5', 'CSS3', 'JavaScript'],
+    href: 'https://ruchi-115.github.io/Soundwave.github.io/index.html',
   },
 ]

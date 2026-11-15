@@ -2,7 +2,6 @@ import { Suspense, useEffect, useState, useRef, useLayoutEffect, useCallback } f
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { Plane, ScrollControls, Scroll, useScroll, useGLTF, Image, useVideoTexture, useTexture, useAspect, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
-import { useControls } from 'leva'
 import Overlay from '../components/Overlay.js'
 import Underlay from '@/components/Underlay.js'
 import LoadingScreen from '@/components/Loading.js'
@@ -118,21 +117,6 @@ export default function Room() {
               <RoomCube scale={1.5} position={[-2.7, -3.2, 1.67]} rotation={[0, 3.14, 0]} castShadow />
               <Scroll html>
                 <div className='scroll-content' style={{ opacity: zoomed ? 0 : 1, pointerEvents: zoomed ? 'none' : 'auto' }} aria-hidden={zoomed}>
-                {/* Letter R */}
-                <div className='absolute letter-r' style={{
-                  backgroundColor: active ? "black" : "white",
-                  top: '1000px',
-                }}>
-                  <div className='letter-r-inside' style={{
-                    backgroundColor: active ? "#0f0f0f" : "#99cad1",
-
-                  }}>
-                    <p className='font-xlg margin-sm' style={{
-                      color: active ? "white" : "black", paddingTop: "1.1em",
-                    }}>HI, I'M RUCHITA SONAWALE</p>
-                    <p className='font-lg margin-sm' style={{ color: active ? "white" : "black", paddingBottom: "0.8em", }}>FULL STACK DEVELOPER</p>
-                  </div>
-                </div>
                 {/* Letter U */}
                 {/* Skills section */}
                 <div className='absolute letter-u' style={{ backgroundColor: active ? "black" : "white", }}>
@@ -151,13 +135,12 @@ export default function Room() {
                     <div className='margin-sm' style={{ paddingTop: "7em" }}>
                       <h1 className='margin-sm font-xlg' style={{ color: active ? "white" : "black" }}>SKILLS</h1>
                       <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "1em" }}>
-                        ● <b>Languages:</b> Python, C/C++, JavaScript.<br />
-                        ● <b>Graphics:</b> Blender, Figma, Three.js.<br />
-                        ● <b>Frontend:</b> HTML5, CSS3, React, Vue.js.<br />
-                        ● <b>Backend:</b>Django, Flask, Next.js, Node.js, Express.<br />
-                        ● <b>Databases:</b> MongoDB, Firebase, PostgreSQL, Sanity, MySQL.<br />
-                        ● <b>Tools:</b>Git, VSCode, PyCharm, GitHub, MS Office.<br />
-                        ● <b>Security:</b> Splunk, Wireshark, Metasploit, Nessus, SEED Labs, Immersive Labs.<br />
+                        ● <b>Languages:</b> Python, Rust, JavaScript, TypeScript, C/C++, Go, Java, SQL, HTML/CSS.<br />
+                        ● <b>Frontend:</b> React.js, Angular.js, Vue.js, Next.js, D3.js, Three.js, Tailwind CSS, Bootstrap.<br />
+                        ● <b>AI/ML:</b> NumPy, Pandas, TensorFlow, PyTorch, GPT-4, Claude Code, Agentic AI Workflows.<br />
+                        ● <b>Backend:</b> Node.js, Express.js, Flask, Django, Spring Boot, RESTful APIs, GraphQL.<br />
+                        ● <b>Cloud &amp; DevOps:</b> AWS (Lambda, EC2, S3), GCP, Azure, Docker, Kubernetes, Jenkins, CI/CD.<br />
+                        ● <b>Databases:</b> MongoDB, PostgreSQL, SQLite, Redis, MySQL.<br />
 
                         {/* ● <b>Frameworks:</b> React, Vue.js, React three fiber, three.js.<br /> */}
                       </p>
@@ -246,10 +229,10 @@ export default function Room() {
                       margin: "0em 3em 0em 0em"
 
                     }}>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● Pursuing MS in Computer Sciences (Fall 2024 - Present) </p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of CSI DMCE tech team (2021 - current)</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Member of GDSC web dev team (2021 - 2022)</p>
-                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Web dev intern at LetsGrowMore, TechnoHacks Edutech Ltd. and Sparks Foundation.</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em" }}>● AI Engineer at ISS Group Inc. (Sept 2026 - Present)</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Software Engineering Intern at NYU VIDA Lab (July - Aug 2026)</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● Software Developer Intern at McKinsey &amp; Company (May - Aug 2025)</p>
+                      <p className='font-md margin-sm' style={{ color: active ? "white" : "black", paddingTop: "0.3em", }}>● MS in Computer Science, NYU (2024 - 2026), GPA 3.7</p>
                     </div>
                     <div className='letter-i-inside' style={{
                       backgroundColor: active ? "#0f0f0f" : "#99cad1",
@@ -372,7 +355,8 @@ function Video() {
     vid.crossOrigin = "Anonymous";
     vid.loop = true;
     vid.muted = true;
-    vid.play();
+    vid.playsInline = true;
+    vid.play().catch(() => {});
     return vid;
   }
   )
@@ -397,7 +381,7 @@ function Video() {
 function RoomCube({ ...props }) {
   const { scene, nodes } = useGLTF('/room.glb')
   // const {actions} = useAnimations(animations, scene)
-  useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
+  useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)), [nodes])
   // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
   // Camera movement (scroll on the home view, zoom to monitor/frames/shelf) lives in CameraRig.
   // const position = useControls('center', {

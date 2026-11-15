@@ -1,35 +1,42 @@
 import { useEffect, useRef } from 'react'
 
 const SESSION = [
-  { cmd: 'whoami', out: ['Ruchita Sonawale — Full Stack Developer'] },
+  { cmd: 'whoami', out: ['Ruchita Sonawale — AI Engineer & Full Stack Developer, New York'] },
   {
     cmd: 'cat about.txt',
     out: [
-      'I build beautiful, functional web apps. A background in graphic design gives me a blend of technical and artistic skills, and I care about shipping designs that are both user-friendly and secure.',
+      'I build AI-powered products and full stack web apps, from document-intelligence pipelines to interactive data viewers. A background in graphic design keeps my work both technical and user-friendly.',
+    ],
+  },
+  {
+    cmd: 'ls experience/',
+    out: [
+      'AI Engineer — ISS Group Inc. (Sept 2026 – present)',
+      '  AI invoice pipeline on Azure Document Intelligence; messaging platform for 200+ users',
+      'SWE Intern — NYU VIDA Lab (Jul – Aug 2026)',
+      '  React + FastAPI microscopy viewer over 50+ TB of imaging data (Zarr, multi-level caching)',
+      'Software Developer Intern — McKinsey & Company (May – Aug 2025)',
+      '  SFTP file browser on AWS Lambda (saved 8 hrs/week); Bloomberg Terminal browser',
     ],
   },
   {
     cmd: 'ls education/',
-    out: ['MS Computer Science, NYU (Fall 2024 – present)', "Bachelor's, Computer Engineering"],
+    out: ['MS Computer Science, NYU (2024 – 2026) · GPA 3.7', 'BE Computer Engineering, University of Mumbai (2020 – 2024) · GPA 9.36'],
   },
   {
     cmd: 'cat skills.txt',
     out: [
-      'languages  Python, C/C++, JavaScript',
-      'frontend   React, Vue.js, Three.js, HTML5, CSS3',
-      'backend    Next.js, Node.js, Express, Django, Flask',
-      'data       PostgreSQL, MongoDB, Firebase, MySQL, Sanity',
-      'security   Splunk, Wireshark, Metasploit, Nessus',
-      'design     Figma, Blender',
+      'languages  Python, Rust, JavaScript, TypeScript, C/C++, Go, Java, SQL',
+      'frontend   React, Angular, Vue.js, Next.js, D3.js, Three.js, Tailwind CSS',
+      'ai/ml      NumPy, Pandas, TensorFlow, PyTorch, GPT-4, Claude Code, agentic workflows',
+      'backend    Node.js, Express, Flask, Django, Spring Boot, REST, GraphQL',
+      'cloud      AWS (Lambda, EC2, S3), GCP, Azure, Docker, Kubernetes, Jenkins, CI/CD',
+      'databases  MongoDB, PostgreSQL, SQLite, Redis, MySQL',
     ],
   },
   {
     cmd: 'ls achievements/',
-    out: ['1st place — Smart India Hackathon 2022', '1st place — PRISM 2022 (IKST)', '10+ hackathons, open source contributor'],
-  },
-  {
-    cmd: 'ls experience/',
-    out: ['CSI DMCE tech team (2021 – present)', 'GDSC web dev team (2021 – 2022)', 'Web dev intern — LetsGrowMore, TechnoHacks, Sparks Foundation'],
+    out: ['HackNYU 2025 — CodeMaven, AI coding mentor', '1st place — Smart India Hackathon 2022', '1st place — PRISM 2022 (IKST)'],
   },
 ]
 
