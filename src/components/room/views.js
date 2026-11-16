@@ -51,8 +51,9 @@ export const FRAMES_PER_PAGE = 3
 export const SOCIALS = [
   { id: 'linkedin', label: 'LinkedIn', icon: '/socials/linkedin.svg', href: 'https://www.linkedin.com/in/ruchita-sonawale-475063196/' },
   { id: 'github', label: 'GitHub', icon: '/socials/github.svg', href: 'https://github.com/ruchi-115' },
-  { id: 'instagram', label: 'Instagram', icon: '/socials/instagram.svg', href: 'https://www.instagram.com/ruchita_115/' },
 ]
+
+export const RESUME_URL = 'https://drive.google.com/file/d/1rz6gI9Sx97oY6tWq6g-IhCZrbi2fmpK7/view?usp=sharing'
 
 export const PROJECTS = [
   {

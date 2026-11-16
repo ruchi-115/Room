@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { SOCIALS } from './views'
+import { RESUME_URL, SOCIALS } from './views'
 
 const EMPTY = { name: '', email: '', message: '', company: '' }
 
@@ -38,6 +38,7 @@ export default function ContactPanel({ open, registerAnchor }) {
   return (
     <section className="room-panel room-panel--contact" data-open={open} aria-labelledby="contact-title">
       <div className="shelf-form" ref={registerAnchor('shelf')}>
+        <div className="postit">
         <div className="shelf-form__head">
           <h2 id="contact-title" className="shelf-form__title" tabIndex={-1} ref={headingRef}>
             Leave a note on the shelf
@@ -52,6 +53,12 @@ export default function ContactPanel({ open, registerAnchor }) {
                 </a>
               </li>
             ))}
+            <li>
+              <a className="shelf-socials__resume" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+                {'Resume ↗'}
+                <span className="sr-only"> (opens Google Drive in a new tab)</span>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -63,8 +70,8 @@ export default function ContactPanel({ open, registerAnchor }) {
             </button>
           </div>
         ) : (
-          <form className="shelf-form__grid" onSubmit={handleSubmit} noValidate={false}>
-            <div className="shelf-form__col">
+          <form className="shelf-form__grid" onSubmit={handleSubmit}>
+            <div className="shelf-form__row">
               <label className="field">
                 <span className="field__label">Name</span>
                 <input className="field__input" name="name" autoComplete="name" required maxLength={100} value={values.name} onChange={update} />
@@ -73,27 +80,36 @@ export default function ContactPanel({ open, registerAnchor }) {
                 <span className="field__label">Email</span>
                 <input className="field__input" type="email" name="email" autoComplete="email" required maxLength={200} value={values.email} onChange={update} />
               </label>
-              <label className="field field--hidden" aria-hidden="true">
-                <span>Company</span>
-                <input name="company" tabIndex={-1} autoComplete="off" value={values.company} onChange={update} />
-              </label>
             </div>
-            <div className="shelf-form__col shelf-form__col--wide">
-              <label className="field field--grow">
-                <span className="field__label">Message</span>
-                <textarea className="field__input field__textarea" name="message" required minLength={10} maxLength={5000} value={values.message} onChange={update} />
-              </label>
-              <div className="shelf-form__footer">
-                <p className="shelf-form__error" role="alert">
-                  {status === 'error' ? error : ''}
-                </p>
-                <button type="submit" className="shelf-form__submit" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Sending…' : 'Send message'}
-                </button>
-              </div>
+            <label className="field field--hidden" aria-hidden="true">
+              <span>Company</span>
+              <input name="company" tabIndex={-1} autoComplete="off" value={values.company} onChange={update} />
+            </label>
+            <label className="field">
+              <span className="field__label">Message</span>
+              <textarea
+                className="field__input field__textarea"
+                name="message"
+                rows={4}
+                required
+                minLength={10}
+                maxLength={5000}
+                placeholder="Say hi, at least 10 characters…"
+                value={values.message}
+                onChange={update}
+              />
+            </label>
+            <div className="shelf-form__footer">
+              <p className="shelf-form__error" role="alert">
+                {status === 'error' ? error : ''}
+              </p>
+              <button type="submit" className="shelf-form__submit" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Sending…' : 'Stick it'}
+              </button>
             </div>
           </form>
         )}
+        </div>
       </div>
     </section>
   )

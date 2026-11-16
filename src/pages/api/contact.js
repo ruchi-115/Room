@@ -27,18 +27,33 @@ export default async function handler(req, res) {
   const domain = process.env.RESEND_EMAIL_DOMAIN
   if (!apiKey || !domain) return res.status(500).json({ error: 'Email is not configured yet.' })
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from: `Portfolio Contact <contact@${domain}>`,
-      to: [process.env.CONTACT_TO_EMAIL || DEFAULT_RECIPIENT],
-      reply_to: email,
-      subject: `New message from ${name.replace(/[\r\n]/g, ' ')}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
-      html: `<p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><p style="white-space:pre-wrap">${escapeHtml(message)}</p>`,
-    }),
-  })
+  const send = (from) =>
+    fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from,
+        to: [process.env.CONTACT_TO_EMAIL || DEFAULT_RECIPIENT],
+        reply_to: email,
+        subject: `New message from ${name.replace(/[\r\n]/g, ' ')}`,
+        text: `From: ${name} <${email}>\n\n${message}`,
+        html: `<p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><p style="white-space:pre-wrap">${escapeHtml(message)}</p>`,
+      }),
+    })
+
+  let response = await send(`Portfolio Contact <contact@${domain}>`)
+
+  // Until the custom domain is verified in Resend, fall back to Resend's shared
+  // sender, which can deliver to the Resend account owner's inbox.
+  if (response.status === 403) {
+    const detail = await response.text()
+    if (/not verified/i.test(detail)) {
+      response = await send('Portfolio Contact <onboarding@resend.dev>')
+    } else {
+      console.error('Resend error', 403, detail)
+      return res.status(502).json({ error: 'Could not send your message. Please try again later.' })
+    }
+  }
 
   if (!response.ok) {
     console.error('Resend error', response.status, await response.text())
