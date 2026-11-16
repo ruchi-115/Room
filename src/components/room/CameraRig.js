@@ -1,17 +1,19 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import { useScroll } from '@react-three/drei'
 import * as THREE from 'three'
 import { VIEWS } from './views'
 
 const UP = new THREE.Vector3(0, 1, 0)
-const HOME_POS = new THREE.Vector3(Math.sin(1) * -12, Math.sin(1) * 2, Math.sin(1) * -8)
 const HOME_LOOK = new THREE.Vector3(0.01, 0, 0)
 export const COMPACT_BREAKPOINT = 640
 
 export default function CameraRig({ view, anchorsRef, onArrive }) {
+  const scroll = useScroll()
   const look = useRef(HOME_LOOK.clone())
   const returning = useRef(false)
   const arrived = useRef(false)
+  const mounted = useRef(false)
   const v = useMemo(
     () => ({
       home: new THREE.Vector3(),
@@ -27,13 +29,27 @@ export default function CameraRig({ view, anchorsRef, onArrive }) {
 
   useEffect(() => {
     arrived.current = false
-    if (view === 'home') returning.current = true
-  }, [view])
+    if (!mounted.current) {
+      mounted.current = true
+      return
+    }
+    if (view !== 'home') return
+    returning.current = true
+    // Wait a frame so ScrollControls re-enables overflow before scrolling to the full-room view.
+    const id = requestAnimationFrame(() => {
+      const el = scroll.el
+      el.scrollTo({ top: el.scrollHeight - el.clientHeight, behavior: 'smooth' })
+    })
+    return () => cancelAnimationFrame(id)
+  }, [view, scroll])
 
   useFrame((state, delta) => {
     const cam = state.camera
     const { width, height } = state.size
-    v.home.copy(HOME_POS)
+    const r1 = scroll.range(0, 0.36)
+    const r2 = scroll.range(0.4, 0.2)
+    const r3 = scroll.range(0.8, 0.2)
+    v.home.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8)
     const ease = 1 - Math.exp(-delta * 3.5)
 
     if (view === 'home') {

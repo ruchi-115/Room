@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState, useRef, useLayoutEffect, useCallback } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { Plane, useGLTF, Image, useVideoTexture, useTexture, useAspect, GizmoViewport, Box, SoftShadows, Text, Html } from '@react-three/drei'
+import { Plane, ScrollControls, useGLTF } from '@react-three/drei'
 import Overlay from '../components/Overlay.js'
 import Underlay from '@/components/Underlay.js'
 import LoadingScreen from '@/components/Loading.js'
@@ -111,8 +111,10 @@ export default function Room() {
 
 
           <Suspense fallback={null}>
-            <CameraRig view={view} anchorsRef={anchorsRef} onArrive={setArrivedView} />
-            <RoomCube scale={1.5} position={[-2.7, -3.2, 1.67]} rotation={[0, 3.14, 0]} castShadow />
+            <ScrollControls pages={3} damping={0.25} enabled={!zoomed}>
+              <CameraRig view={view} anchorsRef={anchorsRef} onArrive={setArrivedView} />
+              <RoomCube scale={1.5} position={[-2.7, -3.2, 1.67]} rotation={[0, 3.14, 0]} castShadow />
+            </ScrollControls>
 
             {/* <mesh scale={[10, 10]}>
               <planeGeometry />
