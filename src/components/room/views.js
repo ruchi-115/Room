@@ -57,13 +57,31 @@ export const RESUME_URL = 'https://drive.google.com/file/d/1rz6gI9Sx97oY6tWq6g-I
 
 export const PROJECTS = [
   {
+    id: 'nyc-transit-hub',
+    title: 'NYC Transit Hub',
+    image: '/projects/nyc-transit-hub.png',
+    summary:
+      'Live NYC transit dashboard with an interactive subway map, per-line train arrivals, LIRR and Metro-North views, and real-time service alerts.',
+    tech: ['Next.js', 'React', 'Mapbox', 'MTA GTFS-RT'],
+    href: 'https://null-pointer-eta.vercel.app/',
+  },
+  {
+    id: 'pyramids',
+    title: 'Pyramids: Three.js Experiments',
+    image: '/projects/pyramids.png',
+    summary:
+      'A set of interactive 3D experiments built around pyramid geometry, exploring lighting, materials and camera motion in WebGL.',
+    tech: ['Three.js', 'WebGL', 'JavaScript'],
+    href: 'https://pyramid-eight.vercel.app/',
+  },
+  {
     id: 'codemaven',
     title: 'CodeMaven: Coding Mentor',
     image: '/projects/codemaven.png',
     summary:
       'AI coding extension built at HackNYU 2025. Real-time debugging help and instant code feedback from GPT-4, Claude and Gemini, right inside the IDE.',
     tech: ['TypeScript', 'React', 'Judge0 API', 'LLMs'],
-    href: 'https://github.com/ruchi-115',
+    href: 'https://advanced-ai-code-editor-plum.vercel.app/',
   },
   {
     id: 'wildlife',
