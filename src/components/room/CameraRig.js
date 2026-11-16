@@ -1,15 +1,14 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useScroll } from '@react-three/drei'
 import * as THREE from 'three'
 import { VIEWS } from './views'
 
 const UP = new THREE.Vector3(0, 1, 0)
+const HOME_POS = new THREE.Vector3(Math.sin(1) * -12, Math.sin(1) * 2, Math.sin(1) * -8)
 const HOME_LOOK = new THREE.Vector3(0.01, 0, 0)
 export const COMPACT_BREAKPOINT = 640
 
 export default function CameraRig({ view, anchorsRef, onArrive }) {
-  const scroll = useScroll()
   const look = useRef(HOME_LOOK.clone())
   const returning = useRef(false)
   const arrived = useRef(false)
@@ -34,10 +33,7 @@ export default function CameraRig({ view, anchorsRef, onArrive }) {
   useFrame((state, delta) => {
     const cam = state.camera
     const { width, height } = state.size
-    const r1 = scroll.range(0 / 7, 0.9 / 7)
-    const r2 = scroll.range(1 / 7, 1.5 / 7)
-    const r3 = scroll.range(2 / 7, 2.5 / 7)
-    v.home.set(Math.sin(r1) * -12, Math.sin(r2) * 2, Math.sin(r3) * -8)
+    v.home.copy(HOME_POS)
     const ease = 1 - Math.exp(-delta * 3.5)
 
     if (view === 'home') {
